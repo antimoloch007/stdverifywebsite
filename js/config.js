@@ -33,7 +33,7 @@ const siteConfig = {
     // Social media links
     socialMedia: {
         twitter: "#",
-        instagram: "#",
+        instagram: "https://www.instagram.com/stdverify",
         linkedin: "https://www.linkedin.com/company/stdverify"
     },
     
