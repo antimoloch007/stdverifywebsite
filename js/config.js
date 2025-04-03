@@ -64,8 +64,8 @@ const siteConfig = {
                 title: "Resources",
                 links: [
                     { text: "FAQ", url: "faq.html" },
-                    { text: "Blog", url: "#blog" },
-                    { text: "Partner Clinics", url: "#clinics" }
+                    { text: "Blog - Coming soon!", url: "#blog" },
+                    { text: "Partner Clinics - Coming soon!", url: "#clinics" }
                 ]
             },
             {
