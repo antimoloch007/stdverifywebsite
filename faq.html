@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STD Verify - Coming Soon</title>
+    <title>STD Verify - Frequently Asked Questions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -102,6 +102,7 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            cursor: none;
         }
         
         .container {
@@ -168,42 +169,6 @@
             position: relative;
         }
         
-        .logo-container {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-        
-        .rainbow-bg {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 20px;
-            z-index: -1;
-            overflow: hidden;
-            transform: scale(1.2);
-        }
-        
-        .rainbow-flow {
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                45deg,
-                #ff0000, #ff9900, #ffff00, 
-                #33cc33, #3399ff, #9966ff, 
-                #ff00ff, #ff0066, #ff0000
-            );
-            background-size: 400% 400%;
-            animation: rainbow-animation 10s linear infinite;
-            border-radius: 20px;
-            opacity: 0.7;
-            filter: blur(10px);
-        }
-        
-        /* New Hero Logo Container Styles */
         .hero-logo-container {
             position: relative;
             display: inline-block;
@@ -265,38 +230,6 @@
             }
         }
         
-        /* Cursor style (hide default cursor) */
-        body {
-            cursor: none;
-        }
-        
-        /* Create a custom cursor */
-        .custom-cursor {
-            position: fixed;
-            width: 30px;
-            height: 30px;
-            pointer-events: none;
-            z-index: 10000;
-            transform: translate(-50%, -50%);
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-        
-        /* Mouse trail effect */
-        .cursor-trail {
-            position: fixed;
-            width: 15px;
-            height: 15px;
-            border-radius: 2px;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: 0;
-            transition: transform 0.1s, opacity 0.5s;
-            mix-blend-mode: screen;
-            image-rendering: pixelated;
-        }
-        
         @keyframes rainbow-animation {
             0% {
                 background-position: 0% 0%;
@@ -319,6 +252,13 @@
             letter-spacing: -0.5px;
         }
         
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
         .tagline {
             font-size: 1.2rem;
             font-weight: 400;
@@ -335,16 +275,81 @@
             margin: 40px auto;
         }
         
-        .about {
-            max-width: 750px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-            font-weight: 300;
-            line-height: 1.8;
+        /* Custom cursor and trail effect */
+        .custom-cursor {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
         }
         
-        .about p {
-            margin-bottom: 20px;
+        .cursor-trail {
+            position: fixed;
+            width: 15px;
+            height: 15px;
+            border-radius: 2px;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0;
+            transition: transform 0.1s, opacity 0.5s;
+            mix-blend-mode: screen;
+            image-rendering: pixelated;
+        }
+        
+        /* FAQ Styles */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .faq-item {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 20px;
+        }
+        
+        .faq-question {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            position: relative;
+            cursor: pointer;
+            padding-right: 30px;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .faq-question.active::after {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+        }
+        
+        .faq-answer.show {
+            max-height: 500px;
+            transition: max-height 0.5s ease-in;
         }
         
         /* Footer Styles */
@@ -443,10 +448,10 @@
     <nav>
         <div class="nav-container">
             <div class="nav-links">
-                <a href="#about">About</a>
+                <a href="index.html#about">About</a>
                 <a href="faq.html">FAQ</a>
             </div>
-            <a href="#" class="nav-logo">STD Verify</a>
+            <a href="index.html" class="nav-logo">STD Verify</a>
             <div class="nav-links">
                 <a href="#" id="contact-button">Join Our Beta</a>
             </div>
@@ -459,157 +464,76 @@
             <span class="close-modal">&times;</span>
             <h2 class="modal-title">Join Our Beta Program</h2>
             <p class="modal-text">Sign up to be one of the first to try STD Verify and help us shape the future of sexual health verification.</p>
-            <a href="https://form.typeform.com/to/Ii3HSlEH" target="_blank" class="beta-button">Sign Up For The Beta</a>
+            <a href="https://forms.example.com/stdverify-beta" target="_blank" class="beta-button">Sign Up For The Beta</a>
         </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Create custom cursor with logo
-            const customCursor = document.createElement('div');
-            customCursor.className = 'custom-cursor';
-            
-            // Use the logo as cursor
-            // Since we can't directly access the logo file, we'll use a data URL technique
-            // First, get the logo element to duplicate it for the cursor
-            const logoImg = document.querySelector('.logo');
-            
-            // Once the logo image loads, we'll use it for the cursor
-            if (logoImg) {
-                logoImg.addEventListener('load', function() {
-                    const tempCanvas = document.createElement('canvas');
-                    const ctx = tempCanvas.getContext('2d');
-                    tempCanvas.width = 40;
-                    tempCanvas.height = 40;
-                    ctx.drawImage(logoImg, 0, 0, 40, 40);
-                    
-                    try {
-                        // Try to get the data URL of the logo
-                        const dataURL = tempCanvas.toDataURL();
-                        customCursor.style.backgroundImage = `url(${dataURL})`;
-                    } catch(e) {
-                        // If security issues prevent getting the data URL, use a fallback
-                        customCursor.style.backgroundImage = `url(./assets/logo.png)`;
-                    }
-                });
-                
-                // Set a fallback right away so there's always a cursor
-                customCursor.style.backgroundImage = `url(./assets/logo.png)`;
-            } else {
-                // If logo isn't found, use a fallback
-                customCursor.style.backgroundImage = `url(./assets/logo.png)`;
-            }
-            
-            document.body.appendChild(customCursor);
-            
-            // Update custom cursor position
-            document.addEventListener('mousemove', function(e) {
-                customCursor.style.left = e.clientX + 'px';
-                customCursor.style.top = e.clientY + 'px';
-            });
-            
-            // Modal functionality
-            const modal = document.getElementById('contact-modal');
-            const contactButton = document.getElementById('contact-button');
-            const closeModal = document.querySelector('.close-modal');
-            
-            contactButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
-            });
-            
-            closeModal.addEventListener('click', function() {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto'; // Re-enable scrolling
-            });
-            
-            // Close modal when clicking outside of it
-            window.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-            });
-            
-            // Number of trail elements to create
-            const numberOfTrails = 20;
-            const colors = [
-                '#ff0000', // bright red
-                '#9400D3', // dark violet
-                '#FFFF00', // bright yellow
-                '#ff0000', // bright red again
-                '#9400D3', // dark violet again
-                '#FFFF00'  // bright yellow again
-            ];
-            
-            // Create trail elements
-            for (let i = 0; i < numberOfTrails; i++) {
-                const trail = document.createElement('div');
-                trail.className = 'cursor-trail';
-                trail.style.backgroundColor = colors[i % colors.length];
-                document.body.appendChild(trail);
-            }
-            
-            const trails = document.querySelectorAll('.cursor-trail');
-            let mouseX = 0;
-            let mouseY = 0;
-            const trailPositions = Array(numberOfTrails).fill().map(() => ({ x: 0, y: 0 }));
-            
-            // Update mouse position on move
-            document.addEventListener('mousemove', function(e) {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-            });
-            
-            // Animate trails
-            function animateTrails() {
-                for (let i = 0; i < trails.length; i++) {
-                    // Delayed following effect
-                    const delay = 0.1 * i;
-                    const trail = trails[i];
-                    
-                    // Update position with easing
-                    trailPositions[i].x += (mouseX - trailPositions[i].x) * (0.2 - delay * 0.01);
-                    trailPositions[i].y += (mouseY - trailPositions[i].y) * (0.2 - delay * 0.01);
-                    
-                    // Apply position
-                    trail.style.transform = `translate(${trailPositions[i].x - 7}px, ${trailPositions[i].y - 7}px) scale(${1 - i * 0.04}) rotate(${i * 10}deg)`;
-                    trail.style.opacity = 1 - (i / trails.length) * 0.6;
-                }
-                
-                requestAnimationFrame(animateTrails);
-            }
-            
-            // Start animation
-            animateTrails();
-        });
-    </script>
     <div class="container">
-        <header>
-            <div class="title">
-            <div class="hero-logo-container">
-                <div class="hero-aura">
-                    <div class="aura-flow"></div>
-                </div>
-                <img src="./assets/logo.png" alt="STD Verify Logo" class="logo">
-            </div>
-            <h1>COMING SOON</h1>
+        <header style="text-align: left;">
+            <h1>Frequently Asked Questions</h1>
             <div class="tagline">
-                "Know Your Status – Because Confidence is the Ultimate Turn-On – More Loads, Less Shots 🏳️‍🌈"
+                Get answers to common questions about STD Verify and our mission to promote safer sexual health in the LGBTQ+ community.
             </div>
         </header>
-         
         
-        <section class="about" id="about">
-            <p>At STD Verify, we believe that knowledge is power, especially when it comes to your sexual health. Our mission is to empower individuals within the LGBTQ+ community to take control of their health and relationships by providing a secure platform for submitting and verifying STD results.</p>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">Does STD Verify store my test results?</div>
+                <div class="faq-answer">
+                    <p>No, STD Verify does not store your actual test results. We use a secure verification system that only confirms your testing status without storing the sensitive details of your medical records. Our platform utilizes advanced cryptographic methods to verify your status while keeping your specific medical information private.</p>
+                </div>
+            </div>
             
-            <p>In a world where confidence is the ultimate turn-on, we're here to help you "Know Your Status" – because being informed is not just smart; it's sexy. Our innovative service allows users to verify their STD status online and at physical venues, ensuring that you can enjoy your connections with peace of mind.</p>
+            <div class="faq-item">
+                <div class="faq-question">How does STD Verify work?</div>
+                <div class="faq-answer">
+                    <p>STD Verify is a tool that allows you to verify your STD results securely and privately. In our beta, you'll upload a copy of your STD results. We do not store your results or your name, and we delete your upload after verification. Instead, we record a true or false value to determine if you uploaded a valid document that shows negative results for STDs. We then use a zero-knowledge virtual machine (zkVM) to compute a proof that your results have been validated.</p>
+                    <p>When you want to display your results using our app, a virtual machine will run the proof that validates your results trustlessly and anonymously.</p>
+                </div>
+            </div>
             
-            <p>Founded in the heart of San Francisco, we are committed to fostering a culture of openness, safety, and pride. We understand the importance of reducing stigma around sexual health, and we aim to create a supportive environment where everyone can feel confident and empowered.</p>
+            <div class="faq-item">
+                <div class="faq-question">What are zero-knowledge proofs?</div>
+                <div class="faq-answer">
+                    <p>Zero-knowledge proofs are a cryptographic method that allows one party to prove to another that a statement is true without revealing any additional information beyond the validity of the statement itself. At STD Verify, we use zero-knowledge proofs to verify your testing status without storing or sharing your actual test results. This advanced technology enables us to confirm you've been tested recently and what your status is without ever having access to your detailed medical information.</p>
+                </div>
+            </div>
             
-            <p>Join us in redefining what it means to be safe and sexy. With stdverify.org, you can enjoy more loads and fewer shots – because your health should never be a gamble.</p>
-        </section>
+            <div class="faq-item">
+                <div class="faq-question">Are you HIPAA compliant?</div>
+                <div class="faq-answer">
+                    <p>Yes, STD Verify is fully HIPAA compliant. We've designed our platform from the ground up to meet and exceed all requirements of the Health Insurance Portability and Accountability Act (HIPAA). Our security protocols, data handling procedures, and verification processes are regularly audited to ensure full compliance with healthcare privacy regulations. We're committed to maintaining the highest standards of privacy and security for all users of our platform.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What is STD Verify?</div>
+                <div class="faq-answer">
+                    <p>STD Verify is a secure platform that allows individuals to verify and share their STD status. Our service enables users to upload their test results from certified healthcare providers, which we then verify and make available through our secure system. Users can then choose to share their verified status with potential partners through our mobile app or at participating venues.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Is my health information secure and private?</div>
+                <div class="faq-answer">
+                    <p>Absolutely. We take your privacy extremely seriously. Your health information is encrypted and stored securely following HIPAA guidelines. You have complete control over who can view your status. We never share your detailed health information with third parties, and we only display your verification status (not specific test results) when you choose to share it.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Which STDs are covered in the verification?</div>
+                <div class="faq-answer">
+                    <p>Our standard verification covers the most common STDs, including HIV, syphilis, gonorrhea, chlamydia, and hepatitis. We're continuously expanding our coverage based on healthcare recommendations and community needs. You can choose which test results to include in your verification profile.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How often should I update my STD verification?</div>
+                <div class="faq-answer">
+                    <p>Healthcare professionals recommend STD testing every 3-6 months for sexually active individuals, especially those with multiple partners. Our system clearly displays when your last verification was performed, and we send reminders when it's time to get tested again. Keeping your verification current is an important part of responsible sexual health.</p>
+                </div>
+            </div>
+        </div>
     </div>
     
     <!-- Footer -->
@@ -618,7 +542,7 @@
             <div class="footer-column">
                 <h3>STD Verify</h3>
                 <ul>
-                    <li><a href="#about">About Us</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
                     <li><a href="#" id="footer-beta-button">Join Our Beta</a></li>
                     <li><a href="#mission">Our Mission</a></li>
                     <li><a href="#privacy">Privacy Policy</a></li>
@@ -668,15 +592,127 @@
     </footer>
 
     <script>
-        // Make the footer beta button trigger the modal too
         document.addEventListener('DOMContentLoaded', function() {
+            // Create custom cursor with logo
+            const customCursor = document.createElement('div');
+            customCursor.className = 'custom-cursor';
+            customCursor.style.backgroundImage = `url(./assets/logo.png)`;
+            document.body.appendChild(customCursor);
+            
+            // Update custom cursor position
+            document.addEventListener('mousemove', function(e) {
+                customCursor.style.left = e.clientX + 'px';
+                customCursor.style.top = e.clientY + 'px';
+            });
+            
+            // Create cursor trail elements
+            const numberOfTrails = 20;
+            const colors = [
+                '#ff0000', // bright red
+                '#9400D3', // dark violet
+                '#FFFF00', // bright yellow
+                '#ff0000', // bright red again
+                '#9400D3', // dark violet again
+                '#FFFF00'  // bright yellow again
+            ];
+            
+            for (let i = 0; i < numberOfTrails; i++) {
+                const trail = document.createElement('div');
+                trail.className = 'cursor-trail';
+                trail.style.backgroundColor = colors[i % colors.length];
+                document.body.appendChild(trail);
+            }
+            
+            const trails = document.querySelectorAll('.cursor-trail');
+            let mouseX = 0;
+            let mouseY = 0;
+            const trailPositions = Array(numberOfTrails).fill().map(() => ({ x: 0, y: 0 }));
+            
+            // Update mouse position on move
+            document.addEventListener('mousemove', function(e) {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+            
+            // Animate trails
+            function animateTrails() {
+                for (let i = 0; i < trails.length; i++) {
+                    // Delayed following effect
+                    const delay = 0.1 * i;
+                    const trail = trails[i];
+                    
+                    // Update position with easing
+                    trailPositions[i].x += (mouseX - trailPositions[i].x) * (0.2 - delay * 0.01);
+                    trailPositions[i].y += (mouseY - trailPositions[i].y) * (0.2 - delay * 0.01);
+                    
+                    // Apply position
+                    trail.style.transform = `translate(${trailPositions[i].x - 7}px, ${trailPositions[i].y - 7}px) scale(${1 - i * 0.04}) rotate(${i * 10}deg)`;
+                    trail.style.opacity = 1 - (i / trails.length) * 0.6;
+                }
+                
+                requestAnimationFrame(animateTrails);
+            }
+            
+            // Start animation
+            animateTrails();
+            
+            // Modal functionality
+            const modal = document.getElementById('contact-modal');
+            const contactButton = document.getElementById('contact-button');
             const footerBetaButton = document.getElementById('footer-beta-button');
-            if (footerBetaButton) {
-                footerBetaButton.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    document.getElementById('contact-modal').style.display = 'block';
-                    document.body.style.overflow = 'hidden';
+            const closeModal = document.querySelector('.close-modal');
+            
+            contactButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+            
+            footerBetaButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+            
+            closeModal.addEventListener('click', function() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Close modal when clicking outside of it
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // FAQ accordion functionality
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    // Toggle active class on question
+                    question.classList.toggle('active');
+                    
+                    // Toggle show class on answer
+                    const answer = question.nextElementSibling;
+                    answer.classList.toggle('show');
+                    
+                    // Close other open questions
+                    faqQuestions.forEach(otherQuestion => {
+                        if (otherQuestion !== question && otherQuestion.classList.contains('active')) {
+                            otherQuestion.classList.remove('active');
+                            otherQuestion.nextElementSibling.classList.remove('show');
+                        }
+                    });
                 });
+            });
+
+            // Automatically open the first FAQ item
+            if (faqQuestions.length > 0) {
+                faqQuestions[0].classList.add('active');
+                faqQuestions[0].nextElementSibling.classList.add('show');
             }
         });
     </script>
