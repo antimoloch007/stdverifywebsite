@@ -1,0 +1,41 @@
+/* STD Verify - Privacy Policy Page Styles */
+
+/* Privacy Policy specific styles */
+.privacy-policy {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.privacy-policy h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 30px 0 15px;
+}
+
+.privacy-policy h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 25px 0 10px;
+}
+
+.privacy-policy p, .privacy-policy ul {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.privacy-policy ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.privacy-policy ul li {
+    margin-bottom: 8px;
+}
+
+.last-updated {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 30px;
+}
