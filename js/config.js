@@ -45,7 +45,19 @@ const siteConfig = {
         ],
         rightLinks: [
             { text: "Join Our Beta", url: "#", id: "contact-button" }
+        ],
+        // Mobile navigation - combines all links for the mobile menu
+        mobileLinks: [
+            { text: "About", url: "index.html#about" },
+            { text: "FAQ", url: "faq.html" },
+            { text: "Join Our Beta", url: "#", id: "mobile-contact-button" }
         ]
+    },
+    
+    // Mobile specific configuration
+    mobile: {
+        logoSmall: "./assets/logo-small.png", // Add a smaller logo for mobile navigation
+        breakpoint: 768 // The width in pixels where mobile layout begins
     },
     
     // Footer structure

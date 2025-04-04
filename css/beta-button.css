@@ -1,0 +1,43 @@
+/* Beta Button Styling - For Navigation Bar */
+
+/* Rainbow gradient style for beta buttons in navigation */
+.nav-container .beta-button,
+.mobile-menu a.beta-button,
+.mobile-menu a#contact-button-mobile {
+    display: inline-block;
+    background: conic-gradient(
+        #ff0000, #ff9900, #ffff00, 
+        #33cc33, #3399ff, #9966ff, 
+        #ff00ff, #ff0066, #ff0000
+    );
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container .beta-button:hover,
+.mobile-menu a.beta-button:hover,
+.mobile-menu a#contact-button-mobile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(153, 102, 255, 0.3);
+    opacity: 1;
+}
+
+/* Mobile menu beta button adjustments */
+.mobile-menu a.beta-button,
+.mobile-menu a#contact-button-mobile {
+    display: block;
+    text-align: center;
+    margin: 20px auto 10px;
+    max-width: 200px;
+}
