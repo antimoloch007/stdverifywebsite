@@ -8,40 +8,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Basic favicon -->
+    <!-- Favicons -->
     <link rel="icon" href="./assets/favicon.ico" sizes="any">
-
-    <!-- Modern browsers - SVG icon -->
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
-
-    <!-- iOS/macOS devices -->
     <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
-
-    <!-- Android Chrome -->
     <link rel="manifest" href="./assets/site.webmanifest">
-
-    <!-- Microsoft Edge and IE -->
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="./assets/mstile-144x144.png">
-
-    <!-- Safari pinned tab -->
     <link rel="mask-icon" href="./assets/safari-pinned-tab.svg" color="#5bbad5">
-
-    <!-- Theme color for mobile browsers -->
     <meta name="theme-color" content="#ffffff">
     
-    <!-- CSS Stylesheets -->
+    <!-- CSS Stylesheets - Order matters for specificity -->
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/navigation.css">
     <link rel="stylesheet" href="./css/modal.css">
     <link rel="stylesheet" href="./css/cursor-effects.css">
     <link rel="stylesheet" href="./css/mobile-responsive.css">
-    <link rel="stylesheet" href="./css/beta-button.css">
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav>
         <div class="nav-container">
+            <!-- Will be populated by JavaScript -->
         </div>
     </nav>
     
@@ -58,19 +46,19 @@
     <div class="container">
         <header>
             <div class="title">
-            <div class="hero-logo-container">
-                <div class="hero-aura">
-                    <div class="aura-flow"></div>
+                <div class="hero-logo-container">
+                    <div class="hero-aura">
+                        <div class="aura-flow"></div>
+                    </div>
+                    <img src="./assets/logo.png" alt="STD Verify Logo" class="logo">
                 </div>
-                <img src="./assets/logo.png" alt="STD Verify Logo" class="logo">
-            </div>
-            <h1>COMING SOON</h1>
-            <div class="tagline">
-                "Know Your Status – Because Confidence is the Ultimate Turn-On – More Loads, Less Shots 🏳️‍🌈"
+                <h1>COMING SOON</h1>
+                <div class="tagline">
+                    "Know Your Status – Because Confidence is the Ultimate Turn-On – More Loads, Less Shots 🏳️‍🌈"
+                </div>
             </div>
         </header>
          
-        
         <section class="about" id="about">
             <p>At STD Verify, we believe that knowledge is power, especially when it comes to your sexual health. Our mission is to empower individuals within the LGBTQ+ community to take control of their health and relationships by providing a secure platform for submitting and verifying STD results.</p>
             
@@ -84,18 +72,90 @@
     
     <!-- Footer -->
     <footer>
-        <div class="footer-container"></div>
-        <div class="copyright"></div>
+        <div class="footer-container">
+            <!-- Will be populated by JavaScript -->
+        </div>
+        <div class="copyright">
+            <!-- Will be populated by JavaScript -->
+        </div>
     </footer>
     
-    <!-- Nav scripts and links -->
+    <!-- Core scripts -->
     <script src="./js/config.js"></script>
     <script src="./js/apply-navigation.js"></script>
     <script src="./js/cursor-effects.js"></script>
     <script src="./js/apply-config.js"></script>
+    
+    <!-- Mobile and modal functionality -->
     <script src="./js/mobile-nav.js"></script>
     <script src="./js/beta-modal.js"></script>
     
-
+    <!-- Custom script to ensure beta button in nav looks like other nav items -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Function to style the beta button in the navigation to match other nav items
+        function styleBetaButton() {
+            // Find all contact/beta buttons in navigation
+            const navBetaButtons = document.querySelectorAll('#contact-button, #footer-beta-button, .nav-links a[href="#"]');
+            
+            navBetaButtons.forEach(button => {
+                // Remove any beta-button class
+                button.classList.remove('beta-button');
+                
+                // Remove any gradient background
+                button.style.background = 'none';
+                button.style.color = '';
+                button.style.borderRadius = '';
+                button.style.padding = '';
+                button.style.textShadow = 'none';
+            });
+            
+            // Make sure the modal beta button keeps its styling
+            const modalBetaButton = document.querySelector('.modal .beta-button');
+            if (modalBetaButton) {
+                modalBetaButton.style.background = 'conic-gradient(#ff0000, #ff9900, #ffff00, #33cc33, #3399ff, #9966ff, #ff00ff, #ff0066, #ff0000)';
+                modalBetaButton.style.color = 'white';
+                modalBetaButton.style.borderRadius = '30px';
+                modalBetaButton.style.padding = '12px 30px';
+                modalBetaButton.style.textShadow = '0 1px 3px rgba(0, 0, 0, 0.3)';
+                modalBetaButton.style.display = 'inline-block';
+                modalBetaButton.style.textDecoration = 'none';
+                modalBetaButton.style.fontWeight = '600';
+            }
+            
+            // Also check for beta buttons in mobile menu
+            const mobileMenuBetaButtons = document.querySelectorAll('.mobile-menu a:contains("Join Our Beta")');
+            mobileMenuBetaButtons.forEach(button => {
+                if (!button.closest('.modal')) {
+                    button.classList.remove('beta-button');
+                    button.style.background = 'none';
+                    button.style.color = '';
+                    button.style.borderRadius = '';
+                    button.style.padding = '';
+                    button.style.textShadow = 'none';
+                }
+            });
+        }
+        
+        // Run on page load
+        styleBetaButton();
+        
+        // Run again after a delay to catch dynamically added elements
+        setTimeout(styleBetaButton, 500);
+        
+        // Run again after mobile navigation is likely to be initialized
+        setTimeout(styleBetaButton, 1000);
+        
+        // Watch for DOM changes that might add nav elements
+        const observer = new MutationObserver(function() {
+            styleBetaButton();
+        });
+        
+        observer.observe(document.body, { 
+            childList: true, 
+            subtree: true 
+        });
+    });
+    </script>
 </body>
 </html>
