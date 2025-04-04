@@ -1,0 +1,139 @@
+/* 
+ * STD Verify - Responsive Styles
+ * Contains all media queries and responsive adjustments
+ */
+
+/* =====================
+   RESPONSIVE MEDIA QUERIES
+   ===================== */
+   @media (max-width: 768px) {
+    /* Typography adjustments */
+    h1 {
+        font-size: 1.8rem;
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .tagline {
+        font-size: 0.95rem;
+        line-height: 1.4;
+        padding: 0 15px;
+        margin-bottom: 25px;
+    }
+    
+    /* Layout adjustments */
+    .container {
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+    
+    /* Hide desktop navigation on mobile */
+    .nav-links {
+        display: none;
+    }
+    
+    /* Show mobile navigation elements */
+    .hamburger {
+        display: flex;
+    }
+    
+    /* About section adjustments */
+    .about {
+        padding: 0 5px;
+    }
+    
+    .about p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+    
+    /* Footer adjustments */
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-column {
+        margin-bottom: 20px;
+    }
+    
+    /* Modal adjustments */
+    .modal-content {
+        margin: 25% auto;
+        width: 90%;
+        padding: 20px 15px;
+    }
+    
+    .modal-title {
+        font-size: 1.5rem;
+        margin-top: 5px;
+    }
+    
+    .modal-text {
+        font-size: 0.95rem;
+    }
+    
+    /* Hero logo adjustments */
+    .hero-logo-container {
+        max-width: 220px;
+        margin: 0 auto 20px;
+    }
+    
+    /* Beta button in mobile menu */
+    .mobile-menu a.beta-button {
+        margin: 20px auto 10px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+    /* Smaller hamburger */
+    .hamburger {
+        width: 40px;
+        height: 40px;
+    }
+    
+    /* Smaller text */
+    h1 {
+        font-size: 1.6rem;
+    }
+    
+    .tagline {
+        font-size: 0.9rem;
+    }
+    
+    /* Narrower menu */
+    .menu-content {
+        width: 90%;
+    }
+    
+    /* Smaller modal */
+    .modal-content {
+        width: 95%;
+        padding: 15px 10px;
+    }
+    
+    .modal-title {
+        font-size: 1.3rem;
+    }
+}
+
+/* Desktop navigation styles */
+@media (min-width: 769px) {
+    /* Hide mobile navigation elements on desktop */
+    .hamburger,
+    .mobile-menu {
+        display: none;
+    }
+    
+    /* Show desktop navigation */
+    .nav-links {
+        display: flex;
+    }
+    
+    /* Container padding */
+    .container {
+        padding-top: 40px;
+    }
+}

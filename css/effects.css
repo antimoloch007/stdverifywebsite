@@ -1,10 +1,16 @@
-/* Enhanced Cursor Effects CSS */
+/* 
+ * STD Verify - Visual Effects
+ * Contains cursor effects and visual enhancements
+ * This file is optional and can be excluded for better performance
+ */
 
-body.custom-cursor-active {
+/* =====================
+   CUSTOM CURSOR
+   ===================== */
+   body.custom-cursor-active {
     cursor: none !important;
 }
 
-/* Create a custom cursor with layered design */
 .custom-cursor {
     position: fixed;
     width: 40px;
@@ -15,7 +21,6 @@ body.custom-cursor-active {
     will-change: transform;
 }
 
-/* Glow effect around cursor */
 .cursor-glow {
     position: absolute;
     width: 50px;
@@ -34,7 +39,6 @@ body.custom-cursor-active {
     animation: pulse 2s infinite alternate;
 }
 
-/* Inner cursor with logo */
 .cursor-inner {
     position: absolute;
     width: 36px;
@@ -48,7 +52,6 @@ body.custom-cursor-active {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-/* Hover effect on clickable elements */
 .cursor-hover .cursor-inner {
     transform: translate(-18px, -18px) scale(1.2);
 }
@@ -63,7 +66,9 @@ body.custom-cursor-active {
     animation: pulse-fast 1s infinite alternate;
 }
 
-/* Container for trail particles for better performance */
+/* =====================
+   CURSOR TRAILS
+   ===================== */
 .trail-container {
     position: fixed;
     top: 0;
@@ -75,7 +80,6 @@ body.custom-cursor-active {
     overflow: hidden;
 }
 
-/* Mouse trail effect particles */
 .cursor-trail {
     position: absolute;
     border-radius: 40%;
@@ -87,7 +91,9 @@ body.custom-cursor-active {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
 }
 
-/* Animations */
+/* =====================
+   ANIMATIONS
+   ===================== */
 @keyframes pulse {
     0% {
         transform: translate(-5px, -5px) scale(0.95);
@@ -110,7 +116,29 @@ body.custom-cursor-active {
     }
 }
 
-/* Media query to disable custom cursor on mobile/tablet devices */
+/* =====================
+   LOGO ANIMATIONS
+   ===================== */
+.animated-logo {
+    animation: logoGlow 3s infinite ease-in-out;
+    border-radius: 50%;
+}
+
+@keyframes logoGlow {
+    0% {
+        box-shadow: 0 0 5px rgba(74, 144, 226, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(74, 144, 226, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(74, 144, 226, 0.2);
+    }
+}
+
+/* =====================
+   RESPONSIVE EFFECTS
+   ===================== */
 @media (max-width: 768px) {
     body {
         cursor: auto !important;

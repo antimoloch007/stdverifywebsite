@@ -1,6 +1,7 @@
 /**
- * STD Verify - Enhanced Cursor Effects
- * Handles custom cursor and rainbow trail effects with mobile detection
+ * STD Verify - Visual Effects
+ * Handles cursor effects and other visual enhancements
+ * This file is optional and can be excluded for better performance
  */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -39,6 +40,7 @@ function initCustomCursor() {
     
     // Hide default cursor
     document.body.style.cursor = 'none';
+    document.body.classList.add('custom-cursor-active');
     
     // Use the logo as cursor
     const logoImg = document.querySelector('.logo');
