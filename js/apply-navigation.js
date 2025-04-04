@@ -9,12 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
     applyFooter();
     updateCopyright();
     updateModalContent();
-    
-    // Update beta sign-up links
-    updateBetaLinks();
-    
-    // Set up modal functionality
-    setupModalListeners();
 });
 
 function applyNavigation() {
@@ -58,6 +52,22 @@ function applyNavigation() {
     navContainer.appendChild(leftLinks);
     navContainer.appendChild(logoLink);
     navContainer.appendChild(rightLinks);
+}
+
+function createSocialIcon(url, svgPath) {
+    const link = document.createElement('a');
+    link.href = url;
+    link.className = 'social-icon';
+    link.target = '_blank';
+    
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('class', 'icon');
+    svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.innerHTML = svgPath;
+    
+    link.appendChild(svg);
+    return link;
 }
 
 function applyFooter() {
@@ -129,22 +139,6 @@ function applyFooter() {
     });
 }
 
-function createSocialIcon(url, svgPath) {
-    const link = document.createElement('a');
-    link.href = url;
-    link.className = 'social-icon';
-    link.target = '_blank';
-    
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.setAttribute('class', 'icon');
-    svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-    svg.setAttribute('viewBox', '0 0 24 24');
-    svg.innerHTML = svgPath;
-    
-    link.appendChild(svg);
-    return link;
-}
-
 function updateCopyright() {
     const copyright = document.querySelector('.copyright p');
     if (!copyright) {
@@ -161,66 +155,17 @@ function updateCopyright() {
 }
 
 function updateModalContent() {
-    const modalTitle = document.querySelector('.modal-title');
-    const modalText = document.querySelector('.modal-text');
-    const betaButton = document.querySelector('.beta-button');
+    const modal = document.getElementById('contact-modal');
+    if (!modal) return;
+
+    const modalTitle = modal.querySelector('.modal-title');
+    const modalText = modal.querySelector('.modal-text');
+    const betaButton = modal.querySelector('.beta-button');
     
     if (modalTitle) modalTitle.textContent = siteConfig.modal.title;
     if (modalText) modalText.textContent = siteConfig.modal.text;
     if (betaButton) {
         betaButton.textContent = siteConfig.modal.buttonText;
         betaButton.href = siteConfig.urls.betaFormUrl;
-    }
-}
-
-function updateBetaLinks() {
-    // Update all beta buttons to point to the correct URL
-    const betaButton = document.querySelector('.beta-button');
-    if (betaButton) {
-        betaButton.href = siteConfig.urls.betaFormUrl;
-    }
-}
-
-function setupModalListeners() {
-    // Modal functionality
-    const modal = document.getElementById('contact-modal');
-    const contactButton = document.getElementById('contact-button');
-    const closeModal = document.querySelector('.close-modal');
-    
-    if (contactButton) {
-        contactButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            if (modal) {
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
-            }
-        });
-    }
-    
-    if (closeModal && modal) {
-        closeModal.addEventListener('click', function() {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto'; // Re-enable scrolling
-        });
-    }
-    
-    // Close modal when clicking outside of it
-    if (modal) {
-        window.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-    }
-    
-    // Make the footer beta button trigger the modal too
-    const footerBetaButton = document.getElementById('footer-beta-button');
-    if (footerBetaButton && modal) {
-        footerBetaButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        });
     }
 }

@@ -1,23 +1,18 @@
-/**
- * STD Verify - Modal Styles Update
- * Focus on fixing the close button positioning
- */
-
-/* Updated modal styling */
+/* Modal Styling */
 .modal {
     display: none;
     position: fixed;
-    z-index: 10001; /* Above the nav */
+    z-index: 10001;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
-  }
-  
-  .modal-content {
+    font-family: 'Inter', sans-serif;
+}
+
+.modal-content {
     background-color: white;
     margin: 15% auto;
     padding: 30px;
@@ -27,10 +22,9 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     position: relative;
     text-align: center;
-  }
-  
-  /* Improved close button positioning */
-  .close-modal {
+}
+
+.close-modal {
     position: absolute;
     top: 15px;
     right: 20px;
@@ -48,34 +42,31 @@
     border: none;
     padding: 0;
     line-height: 1;
-    z-index: 2; /* Ensure it's above other content */
-  }
-  
-  .close-modal:hover {
+    z-index: 2;
+}
+
+.close-modal:hover {
     color: #000;
-  }
-  
-  .modal-title {
+}
+
+.modal-title {
     font-size: 1.8rem;
     margin-bottom: 20px;
     font-weight: 600;
-    padding-right: 30px; /* Add padding to prevent overlap with close button */
-  }
-  
-  .modal-text {
+    padding-right: 30px;
+    font-family: 'Inter', sans-serif;
+}
+
+.modal-text {
     margin-bottom: 25px;
     line-height: 1.6;
-    padding: 0 5px; /* Add side padding for better spacing on mobile */
-  }
-  
-  .modal a.beta-button,
-  .beta-button {
+    padding: 0 5px;
+    font-family: 'Inter', sans-serif;
+}
+
+.modal .beta-button {
     display: inline-block;
-    background: conic-gradient(
-      #ff0000, #ff9900, #ffff00, 
-      #33cc33, #3399ff, #9966ff, 
-      #ff00ff, #ff0066, #ff0000
-    );
+    background: linear-gradient(135deg, #ff0000, #ff9900, #ffff00, #33cc33, #3399ff, #9966ff, #ff00ff);
     color: white;
     border: none;
     padding: 12px 30px;
@@ -89,48 +80,49 @@
     z-index: 1;
     overflow: hidden;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  }
-  
-  .modal a.beta-button:hover,
-  .beta-button:hover {
+    font-family: 'Inter', sans-serif;
+    margin-top: 15px;
+}
+
+.modal .beta-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(153, 102, 255, 0.3);
     opacity: 1;
-  }
-  
-  /* Mobile adjustments */
-  @media (max-width: 768px) {
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
     .modal-content {
-      margin: 25% auto; /* Position higher on mobile */
-      width: 85%;
-      padding: 25px 20px; /* Slightly less padding on sides */
+        margin: 25% auto;
+        width: 85%;
+        padding: 25px 20px;
     }
     
     .close-modal {
-      top: 10px;
-      right: 10px;
-      font-size: 22px; /* Slightly smaller on mobile */
+        top: 10px;
+        right: 10px;
+        font-size: 22px;
     }
     
     .modal-title {
-      font-size: 1.5rem;
-      margin-top: 5px; /* Add some top margin to push content down */
-      padding-right: 25px; /* Less padding on mobile but still enough for X */
+        font-size: 1.5rem;
+        margin-top: 5px;
+        padding-right: 25px;
     }
-  }
-  
-  /* Extra small screens */
-  @media (max-width: 360px) {
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
     .modal-content {
-      width: 90%;
-      padding: 20px 15px;
+        width: 90%;
+        padding: 20px 15px;
     }
     
     .modal-title {
-      font-size: 1.3rem;
+        font-size: 1.3rem;
     }
     
     .modal-text {
-      font-size: 0.95rem;
+        font-size: 0.95rem;
     }
-  }
+}
