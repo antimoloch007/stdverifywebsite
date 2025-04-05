@@ -100,7 +100,7 @@
    HAMBURGER BUTTON
    ===================== */
 .hamburger {
-    display: flex !important; /* Force display on all screen sizes */
+    display: none; /* Changed from flex to none as default */
     margin-left: auto; /* Push to right side */
     background: transparent;
     border: none;
@@ -136,14 +136,23 @@
     transform: translateY(-8px) rotate(-45deg);
 }
 
-/* Override any responsive hiding */
-@media (min-width: 769px) {
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none !important;
+    }
+    
     .hamburger {
         display: flex !important;
     }
-    
-    /* Hide nav links on desktop too, since we're using hamburger exclusively */
+}
+
+@media (min-width: 769px) {
     .nav-links {
+        display: flex !important;
+    }
+    
+    .hamburger {
         display: none !important;
     }
 }

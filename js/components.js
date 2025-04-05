@@ -231,12 +231,25 @@ function styleNavBetaButtons() {
  * FAQ Accordion
  */
 function initFaqAccordion() {
+    console.log("Initializing FAQ Accordion");
+    
     // Get all FAQ question elements
     const faqQuestions = document.querySelectorAll('.faq-question');
     
+    // Ensure we have questions to process
+    if (faqQuestions.length === 0) {
+        console.warn("No FAQ questions found");
+        return;
+    }
+    
     // Add click event listener to each question
     faqQuestions.forEach(question => {
-        question.addEventListener('click', function() {
+        // Remove existing event listeners by cloning
+        const newQuestion = question.cloneNode(true);
+        question.parentNode.replaceChild(newQuestion, question);
+        
+        newQuestion.addEventListener('click', function() {
+            // Toggle active class on
             // Toggle active class on the question
             this.classList.toggle('active');
             
@@ -244,13 +257,36 @@ function initFaqAccordion() {
             const answer = this.nextElementSibling;
             
             // Toggle the show class on the answer
-            answer.classList.toggle('show');
+            if (answer && answer.classList.contains('faq-answer')) {
+                // If this answer is already open, close it
+                const isCurrentlyOpen = answer.classList.contains('show');
+                
+                // Close all other FAQs first
+                const allAnswers = document.querySelectorAll('.faq-answer');
+                const allQuestions = document.querySelectorAll('.faq-question');
+                
+                allAnswers.forEach((otherAnswer, index) => {
+                    otherAnswer.classList.remove('show');
+                    allQuestions[index].classList.remove('active');
+                });
+                
+                // If the clicked FAQ wasn't already open, open it
+                if (!isCurrentlyOpen) {
+                    answer.classList.add('show');
+                    this.classList.add('active');
+                }
+            }
         });
     });
     
-    // Auto-open the first FAQ by default
+    // Optional: Auto-open the first FAQ by default
     if (faqQuestions.length > 0) {
-        faqQuestions[0].classList.add('active');
-        faqQuestions[0].nextElementSibling.classList.add('show');
+        const firstQuestion = faqQuestions[0];
+        const firstAnswer = firstQuestion.nextElementSibling;
+        
+        if (firstAnswer && firstAnswer.classList.contains('faq-answer')) {
+            firstQuestion.classList.add('active');
+            firstAnswer.classList.add('show');
+        }
     }
 }
