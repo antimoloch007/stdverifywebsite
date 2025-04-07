@@ -33,7 +33,7 @@ function initCustomCursor() {
     cursorGlow.className = 'cursor-glow';
     customCursor.appendChild(cursorGlow);
     
-    // Create cursor inner (a simple dot instead of logo)
+    // Create cursor inner (where the logo will be)
     const cursorInner = document.createElement('div');
     cursorInner.className = 'cursor-inner';
     customCursor.appendChild(cursorInner);
@@ -41,6 +41,31 @@ function initCustomCursor() {
     // Hide default cursor
     document.body.style.cursor = 'none';
     document.body.classList.add('custom-cursor-active');
+    
+    // Use the logo as cursor
+    const logoImg = document.querySelector('.logo');
+    
+    // Set default fallback
+    cursorInner.style.backgroundImage = `url(./assets/logo.png)`;
+    
+    // Try to use the actual logo if available
+    if (logoImg) {
+        logoImg.addEventListener('load', function() {
+            try {
+                const tempCanvas = document.createElement('canvas');
+                const ctx = tempCanvas.getContext('2d');
+                tempCanvas.width = 40;
+                tempCanvas.height = 40;
+                ctx.drawImage(logoImg, 0, 0, 40, 40);
+                
+                const dataURL = tempCanvas.toDataURL();
+                cursorInner.style.backgroundImage = `url(${dataURL})`;
+            } catch(e) {
+                // Keep the fallback if there's an error
+                console.log('Using fallback cursor image');
+            }
+        });
+    }
     
     document.body.appendChild(customCursor);
     
@@ -60,6 +85,45 @@ function initCustomCursor() {
             customCursor.classList.remove('cursor-hover');
         });
     });
+    
+    // Add specific handling for modals
+    const modal = document.getElementById('contact-modal');
+    if (modal) {
+        // Special handling for modal content to ensure cursor is visible
+        modal.addEventListener('mousemove', function(e) {
+            if (modal.style.display === 'block') {
+                document.body.style.cursor = 'auto';
+            }
+        });
+        
+        // Ensure we see normal cursor on clickable elements in modal
+        modal.querySelectorAll('a, button, .close-modal').forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                if (modal.style.display === 'block') {
+                    this.style.cursor = 'pointer';
+                }
+            });
+        });
+        
+        // Restore custom cursor when modal is closed
+        const closeButton = modal.querySelector('.close-modal');
+        if (closeButton) {
+            closeButton.addEventListener('click', function() {
+                setTimeout(() => {
+                    document.body.style.cursor = 'none';
+                }, 100);
+            });
+        }
+        
+        // Also handle clicking outside the modal
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                setTimeout(() => {
+                    document.body.style.cursor = 'none';
+                }, 100);
+            }
+        });
+    }
 }
 
 function initRainbowTrails() {
@@ -75,7 +139,7 @@ function initRainbowTrails() {
     // Number of trail elements to create
     const numberOfTrails = 25;
     
-    // Rainbow colors with some translucency - using more pastel/neutral tones
+    // Rainbow colors with some translucency
     const colors = [
         'rgba(255, 200, 200, 0.7)',   // light red
         'rgba(255, 230, 200, 0.7)',   // light orange

@@ -202,3 +202,40 @@
         margin: 30px auto;
     }
 }
+
+/* Override cursor hiding when modal is active */
+.modal-open {
+    cursor: auto !important;
+  }
+  
+  /* Make the modal content use the default cursor */
+  .modal-content {
+    cursor: default !important;
+  }
+  
+  /* Make clickable elements in modal show pointer cursor */
+  .modal-content a,
+  .modal-content button,
+  .modal-content .close-modal {
+    cursor: pointer !important;
+  }
+  
+  /* Keep custom cursor hidden when modal is active */
+  body.modal-open .custom-cursor,
+  body.modal-open .cursor-trail {
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+  
+  /* Ensure the custom cursor has high z-index but doesn't interfere with modals */
+  .custom-cursor {
+    z-index: 10000;
+    pointer-events: none;
+    will-change: transform, opacity;
+    transition: opacity 0.2s ease;
+  }
+  
+  /* Custom z-index for modal to ensure it stays above custom cursor */
+  .modal {
+    z-index: 10001 !important;
+  }

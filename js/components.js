@@ -190,13 +190,52 @@ function setupModalClose(modal) {
 }
 
 function openModal(modal) {
+    // Show the modal
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
+    
+    // Set cursor style to auto for the entire document
+    document.body.style.cursor = 'auto';
+    
+    // Disable custom cursor during modal display
+    const customCursor = document.querySelector('.custom-cursor');
+    if (customCursor) {
+        customCursor.style.display = 'none';
+    }
+    
+    // Hide cursor trails if they exist
+    const trailContainer = document.querySelector('.trail-container');
+    if (trailContainer) {
+        trailContainer.style.display = 'none';
+    }
+    
+    // Make sure clickable elements have the pointer cursor
+    modal.querySelectorAll('a, button, .close-modal').forEach(element => {
+        element.style.cursor = 'pointer';
+    });
 }
 
 function closeModal(modal) {
+    // Hide the modal
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
+    
+    // Restore custom cursor if needed (check if body has the custom-cursor-active class)
+    if (document.body.classList.contains('custom-cursor-active')) {
+        document.body.style.cursor = 'none';
+        
+        // Show the custom cursor again
+        const customCursor = document.querySelector('.custom-cursor');
+        if (customCursor) {
+            customCursor.style.display = '';
+        }
+        
+        // Show cursor trails again
+        const trailContainer = document.querySelector('.trail-container');
+        if (trailContainer) {
+            trailContainer.style.display = '';
+        }
+    }
 }
 
 function styleNavBetaButtons() {
@@ -251,8 +290,8 @@ function initFaqAccordion() {
         question.parentNode.replaceChild(newQuestion, question);
         
         newQuestion.addEventListener('click', function() {
-            // Toggle active class on
             // Toggle active class on the question
+            // Toggle active class on
             this.classList.toggle('active');
             
             // Get the answer associated with this question
@@ -281,7 +320,9 @@ function initFaqAccordion() {
         });
     });
     
-    // Optional: Auto-open the first FAQ by default
+    // Always open the first FAQ on page load
+    // Use a direct access approach rather than triggering click events
+    // Defer this to happen after the page is fully loaded
     if (faqQuestions.length > 0) {
         const firstQuestion = faqQuestions[0];
         const firstAnswer = firstQuestion.nextElementSibling;
