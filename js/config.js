@@ -40,17 +40,17 @@ const siteConfig = {
     // Navigation structure
     navigation: {
         leftLinks: [
-            { text: "About", url: "index.html#about" },
-            { text: "FAQ", url: "faq.html" }
+            // { text: "Our Mission", url: "index.html#mission" },
+            // { text: "FAQ", url: "faq.html" }
         ],
         rightLinks: [
             { text: "Join Our Beta", url: "#", id: "contact-button" }
         ],
         // Mobile navigation - combines all links for the mobile menu
         mobileLinks: [
-            { text: "About", url: "index.html#about" },
-            { text: "FAQ", url: "faq.html" },
-            { text: "Join Our Beta", url: "#", id: "mobile-contact-button" }
+            { text: "Join Our Beta", url: "#", id: "mobile-contact-button" },
+            // { text: "Our Mission", url: "index.html#about" },
+            { text: "FAQ", url: "faq.html" }  
         ]
     },
     
@@ -66,9 +66,8 @@ const siteConfig = {
             {
                 title: "STD Verify",
                 links: [
-                    { text: "About Us", url: "index.html#about" },
                     { text: "Join Our Beta", url: "#", id: "footer-beta-button" },
-                    { text: "Our Mission", url: "index.html#mission" },
+                    { text: "Our Mission", url: "index.html#about" },
                     { text: "Privacy Policy", url: "privacy-policy.html" }
                 ]
             },

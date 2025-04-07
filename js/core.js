@@ -74,14 +74,14 @@ function getDefaultConfig() {
         },
         navigation: {
             leftLinks: [
-                { text: "About", url: "index.html#about" },
+                { text: "Our Mission", url: "index.html#about" },
                 { text: "FAQ", url: "faq.html" }
             ],
             rightLinks: [
                 { text: "Join Our Beta", url: "#", id: "contact-button" }
             ],
             mobileLinks: [
-                { text: "About", url: "index.html#about" },
+                { text: "Our Mission", url: "index.html#about" },
                 { text: "FAQ", url: "faq.html" },
                 { text: "Join Our Beta", url: "#", id: "mobile-contact-button" }
             ]
@@ -91,7 +91,7 @@ function getDefaultConfig() {
                 {
                     title: "STD Verify",
                     links: [
-                        { text: "About Us", url: "index.html#about" },
+                        { text: "Our Mission", url: "index.html#about" },
                         { text: "Join Our Beta", url: "#", id: "footer-beta-button" }
                     ]
                 },
