@@ -32,7 +32,7 @@ const siteConfig = {
     
     // Social media links
     socialMedia: {
-        twitter: "#",
+        bluesky: "https://bsky.app/profile/stdverify.bsky.social",
         instagram: "https://www.instagram.com/stdverify",
         linkedin: "https://www.linkedin.com/company/stdverify"
     },
