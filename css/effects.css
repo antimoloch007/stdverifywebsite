@@ -41,16 +41,18 @@
 
 .cursor-inner {
     position: absolute;
-    width: 36px;
-    height: 36px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    transform: translate(-18px, -18px);
+    background-color: rgba(255, 255, 255, 0.8);
+    transform: translate(-5px, -5px);
     transition: transform 0.3s ease;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
 .cursor-hover .cursor-inner {
-    transform: translate(-18px, -18px) scale(1.2);
+    transform: translate(-5px, -5px) scale(1.5);
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 .cursor-hover .cursor-glow {
@@ -89,37 +91,6 @@
 }
 
 /* =====================
-   MAIN LOGO AURA 
-   ===================== */
-/* Add rainbow aura to main logo */
-.hero-logo-container {
-    position: relative;
-}
-
-.hero-logo-container::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: conic-gradient(
-        rgba(255, 0, 0, 0.2),
-        rgba(255, 165, 0, 0.2),
-        rgba(255, 255, 0, 0.2),
-        rgba(0, 255, 0, 0.2),
-        rgba(0, 0, 255, 0.2),
-        rgba(128, 0, 128, 0.2),
-        rgba(255, 0, 0, 0.2)
-    );
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    animation: rainbow-rotate 6s linear infinite;
-    filter: blur(2px);
-}
-
-/* =====================
    ANIMATIONS
    ===================== */
 @keyframes pulse {
@@ -144,15 +115,6 @@
     }
 }
 
-@keyframes rainbow-rotate {
-    0% {
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-    100% {
-        transform: translate(-50%, -50%) rotate(360deg);
-    }
-}
-
 /* =====================
    LOGO ANIMATIONS
    ===================== */
@@ -174,6 +136,54 @@
 }
 
 /* =====================
+   ENHANCED LOGO STYLES
+   ===================== */
+/* This ensures the logo has a proper circular form */
+.main-logo-circle {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+/* Keep the original aura-flow but ensure it's properly positioned */
+.hero-aura {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Updated with more neutral rainbow colors similar to cursor animations */
+.aura-flow {
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    top: -25%;
+    left: -25%;
+    background: conic-gradient(
+        rgba(255, 200, 200, 0.8), 
+        rgba(255, 230, 200, 0.8), 
+        rgba(255, 255, 200, 0.8), 
+        rgba(200, 255, 200, 0.8), 
+        rgba(200, 230, 255, 0.8), 
+        rgba(220, 200, 255, 0.8), 
+        rgba(255, 200, 230, 0.8),
+        rgba(255, 200, 200, 0.8)
+    );
+    opacity: 0.7;
+    filter: blur(15px);
+    animation: pulse-animation 5s ease-in-out infinite alternate, 
+               rainbow-rotate 6s linear infinite;
+    z-index: 1;
+}
+
+/* =====================
    RESPONSIVE EFFECTS
    ===================== */
 @media (max-width: 768px) {
@@ -183,5 +193,12 @@
     
     .custom-cursor, .cursor-trail, .trail-container {
         display: none !important;
+    }
+    
+    /* Ensure the logo looks good on mobile */
+    .hero-logo-container {
+        width: 200px;
+        height: 200px;
+        margin: 30px auto;
     }
 }

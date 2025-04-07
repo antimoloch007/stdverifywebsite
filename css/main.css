@@ -85,19 +85,29 @@ header {
    ===================== */
 .hero-logo-container {
     position: relative;
-    display: inline-block;
-    margin: 40px 0;
-    border-radius: 50%;
-    overflow: hidden;
+    display: block;
     width: 250px;
     height: 250px;
+    margin: 40px auto;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
+/* Fixed logo positioning to ensure it appears centered */
 .hero-logo {
     position: relative;
     z-index: 2;
     max-width: 100%;
-    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Maintain a consistent arrangement and responsive design */
+@media (max-width: 768px) {
+    .hero-logo-container {
+        width: 200px;
+        height: 200px;
+    }
 }
 
 /* =====================
@@ -122,6 +132,38 @@ header {
     width: 18px;
     height: 18px;
     fill: #555;
+}
+
+/* =====================
+   ANIMATIONS
+   ===================== */
+@keyframes pulse-animation {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+}
+
+@keyframes rainbow-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rainbow-animation {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
 }
 
 /* =====================
