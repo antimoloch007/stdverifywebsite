@@ -213,14 +213,16 @@ function styleNavBetaButtons() {
         button.style.textShadow = 'none';
     });
     
-    // Make sure modal beta button has the rainbow gradient
+    // Make sure modal beta button has the subtle rainbow gradient
     const modalBetaButton = document.querySelector('.modal .beta-button');
     if (modalBetaButton) {
-        modalBetaButton.style.background = 'conic-gradient(#ff0000, #ff9900, #ffff00, #33cc33, #3399ff, #9966ff, #ff00ff, #ff0066, #ff0000)';
-        modalBetaButton.style.color = 'white';
+        // Replace the bright rainbow gradient with a more subtle one
+        modalBetaButton.style.background = 'linear-gradient(45deg, rgba(255, 182, 193, 0.7), rgba(255, 222, 173, 0.7), rgba(255, 255, 173, 0.7), rgba(173, 255, 182, 0.7), rgba(173, 216, 255, 0.7), rgba(216, 173, 255, 0.7))';
+        modalBetaButton.style.color = '#333'; // Darker text for better contrast
         modalBetaButton.style.borderRadius = '30px';
         modalBetaButton.style.padding = '12px 30px';
-        modalBetaButton.style.textShadow = '0 1px 3px rgba(0, 0, 0, 0.3)';
+        modalBetaButton.style.textShadow = 'none'; // Remove text shadow
+        modalBetaButton.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)'; // Add subtle shadow
         modalBetaButton.style.display = 'inline-block';
         modalBetaButton.style.textDecoration = 'none';
         modalBetaButton.style.fontWeight = '600';
