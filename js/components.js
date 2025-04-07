@@ -291,7 +291,6 @@ function initFaqAccordion() {
         
         newQuestion.addEventListener('click', function() {
             // Toggle active class on the question
-            // Toggle active class on
             this.classList.toggle('active');
             
             // Get the answer associated with this question
