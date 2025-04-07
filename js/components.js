@@ -39,9 +39,6 @@ function initModalSystem() {
     
     // Set up modal close functionality
     setupModalClose(modal);
-    
-    // Style navigation beta buttons
-    styleNavBetaButtons();
 }
 
 function createModal() {
