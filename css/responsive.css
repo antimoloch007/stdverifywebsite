@@ -30,12 +30,12 @@
     
     /* Hide desktop navigation on mobile */
     .nav-links {
-        display: none;
+        display: none !important;
     }
     
     /* Show mobile navigation elements */
     .hamburger {
-        display: flex;
+        display: flex !important;
     }
     
     /* About section adjustments */
@@ -77,7 +77,7 @@
     /* Hero logo adjustments */
     .hero-logo-container {
         max-width: 220px;
-        margin: 0 auto 20px;
+        margin: 20px auto;
     }
     
     /* Beta button in mobile menu */
@@ -124,12 +124,12 @@
     /* Hide mobile navigation elements on desktop */
     .hamburger,
     .mobile-menu {
-        display: none;
+        display: none !important;
     }
     
     /* Show desktop navigation */
     .nav-links {
-        display: flex;
+        display: flex !important;
     }
     
     /* Container padding */

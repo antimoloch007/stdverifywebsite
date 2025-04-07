@@ -206,6 +206,8 @@ function enhanceHeroLogo() {
     const img = heroLogoContainer.querySelector('img');
     if (img) {
         img.style.borderRadius = '50%';
+        img.style.position = 'relative';
+        img.style.zIndex = '2';
         
         // Create outer glow element
         const outerGlow = document.createElement('div');
@@ -215,9 +217,10 @@ function enhanceHeroLogo() {
         outerGlow.style.right = '-5px';
         outerGlow.style.bottom = '-5px';
         outerGlow.style.borderRadius = '50%';
-        outerGlow.style.border = '2px solid rgba(255, 255, 255, 0.15)';
-        outerGlow.style.boxShadow = '0 0 15px rgba(255, 255, 255, 0.2)';
+        outerGlow.style.border = '2px solid rgba(255, 255, 255, 0.8)';
+        outerGlow.style.boxShadow = '0 0 15px rgba(255, 255, 255, 0.5)';
         outerGlow.style.pointerEvents = 'none';
+        outerGlow.style.zIndex = '3';
         
         // Insert before the image for proper z-index
         heroLogoContainer.insertBefore(outerGlow, img);
@@ -228,7 +231,7 @@ function enhanceHeroLogo() {
  * Set up the navigation bar
  */
 function setupNavigation() {
-    console.log("Setting up navigation with desktop hamburger");
+    console.log("Setting up navigation");
     
     // Only initialize if siteConfig exists
     if (!window.siteConfig) {
@@ -245,33 +248,52 @@ function setupNavigation() {
     // Clear existing navigation
     navContainer.innerHTML = '';
 
-    // Add logo with icon
-    const logoIconContainer = document.createElement('a');
-    logoIconContainer.href = 'index.html';
-    logoIconContainer.className = 'nav-icon-container';
-    logoIconContainer.style.display = 'flex';
-    logoIconContainer.style.alignItems = 'center';
-
-    // Create small icon/logo with glow effect
-    const logoIcon = document.createElement('img');
-    logoIcon.src = './assets/logo-small.png'; // Adjust path as needed
-    logoIcon.alt = 'STD Verify Icon';
-    logoIcon.className = 'nav-icon';
-    logoIcon.style.height = '25px';
-    logoIcon.style.marginRight = '10px';
-    logoIconContainer.appendChild(logoIcon);
-    
-    // Create logo text
-    const logoText = document.createElement('span');
+    // Add logo text only (no icon)
+    const logoText = document.createElement('a');
+    logoText.href = 'index.html';
     logoText.className = 'nav-logo';
     logoText.textContent = window.siteConfig.siteName || "STD Verify";
-    logoIconContainer.appendChild(logoText);
+    logoText.style.textDecoration = 'none';
+    
+    // Create desktop navigation links
+    const desktopNav = document.createElement('div');
+    desktopNav.className = 'nav-links desktop-nav';
+    
+    // Left links
+    const leftLinks = document.createElement('div');
+    leftLinks.className = 'left-links';
+    
+    if (window.siteConfig.navigation.leftLinks) {
+        window.siteConfig.navigation.leftLinks.forEach(link => {
+            const a = document.createElement('a');
+            a.href = link.url || "#";
+            a.textContent = link.text || "";
+            if (link.id) a.id = link.id;
+            leftLinks.appendChild(a);
+        });
+    }
+    
+    // Right links
+    const rightLinks = document.createElement('div');
+    rightLinks.className = 'right-links';
+    
+    if (window.siteConfig.navigation.rightLinks) {
+        window.siteConfig.navigation.rightLinks.forEach(link => {
+            const a = document.createElement('a');
+            a.href = link.url || "#";
+            a.textContent = link.text || "";
+            if (link.id) a.id = link.id;
+            rightLinks.appendChild(a);
+        });
+    }
+    
+    desktopNav.appendChild(leftLinks);
+    desktopNav.appendChild(rightLinks);
 
-    // Create hamburger button - ensure it's visible on desktop
+    // Create hamburger button for mobile
     const hamburger = document.createElement('button');
     hamburger.className = 'hamburger';
     hamburger.setAttribute('aria-label', 'Toggle navigation menu');
-    hamburger.style.display = 'flex'; // Ensure it's displayed
     
     // Add hamburger icon spans
     for (let i = 0; i < 3; i++) {
@@ -279,11 +301,12 @@ function setupNavigation() {
         hamburger.appendChild(span);
     }
     
-    // Add elements to navigation - just logo and hamburger, no links
-    navContainer.appendChild(logoIconContainer);
+    // Add elements to navigation
+    navContainer.appendChild(logoText);
+    navContainer.appendChild(desktopNav);
     navContainer.appendChild(hamburger);
     
-    // Set up mobile navigation (will now be used on desktop too)
+    // Set up mobile navigation
     setupMobileNavigation();
 }
 

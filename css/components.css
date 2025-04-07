@@ -41,14 +41,27 @@
     gap: 30px;
 }
 
-.nav-links a {
+.desktop-nav {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    margin: 0 20px;
+}
+
+.desktop-nav .left-links,
+.desktop-nav .right-links {
+    display: flex;
+    gap: 30px;
+}
+
+.desktop-nav a {
     text-decoration: none;
     font-weight: 500;
     color: #000;
     transition: opacity 0.2s ease;
 }
 
-.nav-links a:hover {
+.desktop-nav a:hover {
     opacity: 0.7;
 }
 
@@ -77,6 +90,7 @@
     margin-right: auto;
     text-decoration: none;
     color: inherit;
+    position: relative;
 }
 
 /* Style the icon itself */
@@ -100,8 +114,8 @@
    HAMBURGER BUTTON
    ===================== */
 .hamburger {
-    display: none; /* Changed from flex to none as default */
-    margin-left: auto; /* Push to right side */
+    display: none;
+    margin-left: auto;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -134,27 +148,6 @@
 
 .hamburger.open span:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
-}
-
-/* Responsive Media Queries */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none !important;
-    }
-    
-    .hamburger {
-        display: flex !important;
-    }
-}
-
-@media (min-width: 769px) {
-    .nav-links {
-        display: flex !important;
-    }
-    
-    .hamburger {
-        display: none !important;
-    }
 }
 
 /* =====================
@@ -587,7 +580,7 @@ footer {
 }
 
 /* Add circular border around main hero logo */
-.hero-logo-container {
+.main-logo-circle {
     position: relative;
     width: 100%;
     max-width: 240px;
@@ -597,7 +590,7 @@ footer {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
 }
 
-.hero-logo-container:after {
+.main-logo-circle:after {
     content: '';
     display: block;
     position: absolute;
@@ -608,14 +601,4 @@ footer {
     border-radius: 50%;
     border: 2px solid rgba(255, 255, 255, 0.1);
     pointer-events: none;
-}
-
-/* For the circular glow/border on main logo */
-.main-logo-circle {
-    position: relative;
-    display: inline-block;
-    border-radius: 50%;
-    padding: 6px;
-    background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
 }
