@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('desktop-specific test', async ({ page }) => {
   // go to the website
   await page.goto('http://stdverify.org/');
 
@@ -47,5 +47,7 @@ test('test', async ({ page }) => {
   const page4 = await page4Promise;
   await expect(page4.url()).toBe('https://www.linkedin.com/company/stdverify');
   await page4.close();
+
+  await page.close();
 
 });
