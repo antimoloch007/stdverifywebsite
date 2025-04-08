@@ -531,7 +531,9 @@ footer {
         padding: 0 10px;
     }
 }
-
+/* =====================
+   MAIN HERO LOGO STYLES
+   ===================== */
 /* Add circular border around main hero logo */
 .main-logo-circle {
     position: relative;
@@ -539,7 +541,7 @@ footer {
     max-width: 240px;
     margin: 20px auto;
     border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 5px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
 }
 
@@ -554,4 +556,46 @@ footer {
     border-radius: 50%;
     border: 2px solid rgba(255, 255, 255, 0.1);
     pointer-events: none;
+}
+
+/* 
+ * Logo Sticker Effect 
+ * Adds a white sticker-like border behind the main logo
+ */
+
+/* Enhance the existing main-logo-circle class */
+.main-logo-circle {
+    position: relative;
+    display: inline-block;
+    border-radius: 50%;
+    padding: 8px; /* Slightly increased padding for more visible white border */
+    background: white; /* White background for sticker effect */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+    z-index: 1;
+}
+
+/* Add a slightly larger outer white ring */
+.main-logo-circle::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 50%;
+    background: white;
+    z-index: -1;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure the rainbow aura is properly positioned within the white sticker */
+.hero-aura {
+    z-index: 0; /* Ensure the aura is behind the logo but above the white background */
+}
+
+/* Keep the logo on top */
+.hero-logo-container img.logo {
+    position: relative;
+    z-index: 2;
+    border-radius: 50%;
 }
