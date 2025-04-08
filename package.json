@@ -1,0 +1,25 @@
+{
+  "name": "stdverifywebsite",
+  "version": "1.0.0",
+  "description": "<img src=\"./assets/logo.png\" alt=\"STD Verify Logo\" width=\"160\"/>",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.51.1",
+    "@types/node": "^22.14.0"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antimoloch007/stdverifywebsite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/antimoloch007/stdverifywebsite/issues"
+  },
+  "homepage": "https://github.com/antimoloch007/stdverifywebsite#readme"
+}
