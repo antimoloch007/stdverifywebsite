@@ -68,7 +68,7 @@ function getDefaultConfig() {
             companyName: "STD Verify"
         },
         socialMedia: {
-            twitter: "#",
+            bluesky: "#",
             instagram: "#",
             linkedin: "#"
         },
@@ -158,11 +158,11 @@ function applyConfig() {
     });
     
     // Apply social media links
-    const twitterLink = document.querySelector('.social-icon:nth-child(1)');
+    const blueskyLink = document.querySelector('.social-icon:nth-child(1)');
     const instagramLink = document.querySelector('.social-icon:nth-child(2)');
     const linkedinLink = document.querySelector('.social-icon:nth-child(3)');
     
-    if (twitterLink) twitterLink.href = window.siteConfig.socialMedia.twitter || "#";
+    if (blueskyLink) blueskyLink.href = window.siteConfig.socialMedia.bluesky || "#";
     if (instagramLink) instagramLink.href = window.siteConfig.socialMedia.instagram || "#";
     if (linkedinLink) linkedinLink.href = window.siteConfig.socialMedia.linkedin || "#";
 }
@@ -509,7 +509,7 @@ function setupFooter() {
             const socialDiv = document.createElement('div');
             socialDiv.className = 'social-icons';
             
-            // Bluesky icon (replacing Twitter/X)
+            // Bluesky icon
             if (window.siteConfig.socialMedia && window.siteConfig.socialMedia.bluesky) {
                 // Create a link element for Bluesky
                 const blueskyLink = document.createElement('a');
