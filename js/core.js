@@ -44,6 +44,9 @@ function initCore() {
     } else {
         console.log("Components initialization function not found");
     }
+    
+    // NOTE: removed addBackgroundAnimation() call from here
+    // Background animation is now exclusively handled by background-animation.js
 }
 
 /**
@@ -74,14 +77,14 @@ function getDefaultConfig() {
         },
         navigation: {
             leftLinks: [
-                { text: "Our Mission", url: "index.html#about" },
+                { text: "About", url: "index.html#about" },
                 { text: "FAQ", url: "faq.html" }
             ],
             rightLinks: [
                 { text: "Join Our Beta", url: "#", id: "contact-button" }
             ],
             mobileLinks: [
-                { text: "Our Mission", url: "index.html#about" },
+                { text: "About", url: "index.html#about" },
                 { text: "FAQ", url: "faq.html" },
                 { text: "Join Our Beta", url: "#", id: "mobile-contact-button" }
             ]
@@ -91,7 +94,7 @@ function getDefaultConfig() {
                 {
                     title: "STD Verify",
                     links: [
-                        { text: "Our Mission", url: "index.html#about" },
+                        { text: "About Us", url: "index.html#about" },
                         { text: "Join Our Beta", url: "#", id: "footer-beta-button" }
                     ]
                 },
@@ -228,10 +231,10 @@ function enhanceHeroLogo() {
 }
 
 /**
- * Set up the navigation bar
+ * Set up the navigation bar with logo
  */
 function setupNavigation() {
-    console.log("Setting up navigation");
+    console.log("Setting up unified navigation");
     
     // Only initialize if siteConfig exists
     if (!window.siteConfig) {
@@ -248,16 +251,47 @@ function setupNavigation() {
     // Clear existing navigation
     navContainer.innerHTML = '';
 
-    // Add logo text only (no icon)
-    const logoText = document.createElement('a');
-    logoText.href = 'index.html';
+    // Create logo container with link - ALWAYS SHOW LOGO
+    const logoContainer = document.createElement('a');
+    logoContainer.href = 'index.html';
+    logoContainer.className = 'nav-logo-container';
+    
+    // Create logo icon container with proper structure
+    const logoIconContainer = document.createElement('div');
+    logoIconContainer.className = 'nav-logo-icon';
+    
+    // Add the rainbow background to logo icon
+    const logoAura = document.createElement('div');
+    logoAura.className = 'hero-aura';
+    
+    const auraFlow = document.createElement('div');
+    auraFlow.className = 'aura-flow';
+    
+    logoAura.appendChild(auraFlow);
+    logoIconContainer.appendChild(logoAura);
+    
+    // Create logo image - ensure it's properly structured
+    const logoImg = document.createElement('img');
+    logoImg.src = './assets/logo.png';
+    logoImg.alt = 'STD Verify Logo';
+    logoImg.style.width = '80%';
+    logoImg.style.height = '80%';
+    logoImg.style.objectFit = 'contain';
+    logoImg.style.position = 'relative';
+    logoImg.style.zIndex = '2';
+    
+    logoIconContainer.appendChild(logoImg);
+    logoContainer.appendChild(logoIconContainer);
+    
+    // Add logo text
+    const logoText = document.createElement('span');
     logoText.className = 'nav-logo';
     logoText.textContent = window.siteConfig.siteName || "STD Verify";
-    logoText.style.textDecoration = 'none';
+    logoContainer.appendChild(logoText);
     
-    // Create desktop navigation links
-    const desktopNav = document.createElement('div');
-    desktopNav.className = 'nav-links desktop-nav';
+    // Create nav links container 
+    const navLinks = document.createElement('div');
+    navLinks.className = 'nav-links desktop-nav';
     
     // Left links
     const leftLinks = document.createElement('div');
@@ -287,10 +321,10 @@ function setupNavigation() {
         });
     }
     
-    desktopNav.appendChild(leftLinks);
-    desktopNav.appendChild(rightLinks);
-
-    // Create hamburger button for mobile
+    navLinks.appendChild(leftLinks);
+    navLinks.appendChild(rightLinks);
+    
+    // Create hamburger button
     const hamburger = document.createElement('button');
     hamburger.className = 'hamburger';
     hamburger.setAttribute('aria-label', 'Toggle navigation menu');
@@ -302,11 +336,11 @@ function setupNavigation() {
     }
     
     // Add elements to navigation
-    navContainer.appendChild(logoText);
-    navContainer.appendChild(desktopNav);
+    navContainer.appendChild(logoContainer);
+    navContainer.appendChild(navLinks);
     navContainer.appendChild(hamburger);
     
-    // Set up mobile navigation
+    // Set up mobile navigation with the same logo
     setupMobileNavigation();
 }
 
@@ -314,7 +348,7 @@ function setupNavigation() {
  * Set up the mobile navigation menu
  */
 function setupMobileNavigation() {
-    console.log("Setting up mobile navigation");
+    console.log("Setting up mobile navigation with consistent logo");
     
     // Check if mobile nav already exists
     let existingMobileMenu = document.querySelector('.mobile-menu');
@@ -333,6 +367,46 @@ function setupMobileNavigation() {
     
     const menuContent = document.createElement('div');
     menuContent.className = 'menu-content';
+    
+    // Create mobile header with logo - SAME STRUCTURE AS DESKTOP
+    const mobileHeader = document.createElement('div');
+    mobileHeader.className = 'mobile-header';
+    
+    // Create logo icon container with exact same structure as desktop
+    const logoIconContainer = document.createElement('div');
+    logoIconContainer.className = 'nav-logo-icon';
+    
+    // Add the rainbow background - same as desktop
+    const logoAura = document.createElement('div');
+    logoAura.className = 'hero-aura';
+    
+    const auraFlow = document.createElement('div');
+    auraFlow.className = 'aura-flow';
+    
+    logoAura.appendChild(auraFlow);
+    logoIconContainer.appendChild(logoAura);
+    
+    // Create logo image - IDENTICAL TO DESKTOP
+    const logoImg = document.createElement('img');
+    logoImg.src = './assets/logo.png';
+    logoImg.alt = 'STD Verify Logo';
+    logoImg.style.width = '80%';
+    logoImg.style.height = '80%';
+    logoImg.style.objectFit = 'contain';
+    logoImg.style.position = 'relative';
+    logoImg.style.zIndex = '2';
+    
+    logoIconContainer.appendChild(logoImg);
+    
+    // Create logo text
+    const logoText = document.createElement('span');
+    logoText.className = 'nav-logo';
+    logoText.textContent = window.siteConfig.siteName || "STD Verify";
+    logoText.style.fontSize = '1.4rem';
+    logoText.style.fontWeight = '700';
+    
+    mobileHeader.appendChild(logoIconContainer);
+    mobileHeader.appendChild(logoText);
     
     // Create close button
     const closeButton = document.createElement('button');
@@ -356,11 +430,9 @@ function setupMobileNavigation() {
         link.textContent = item.text || "";
         
         if (item.id) {
-            // Create a unique mobile ID
             const mobileId = item.id + '-mobile';
             link.id = mobileId;
             
-            // If this is the beta/contact button
             if (item.id === 'contact-button' || item.id.includes('beta')) {
                 link.className = 'beta-button';
             }
@@ -372,6 +444,7 @@ function setupMobileNavigation() {
     
     // Assemble mobile menu
     menuContent.appendChild(closeButton);
+    menuContent.appendChild(mobileHeader);
     menuContent.appendChild(navList);
     mobileMenu.appendChild(menuBackdrop);
     mobileMenu.appendChild(menuContent);

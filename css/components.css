@@ -180,18 +180,29 @@
 .mobile-nav-list {
     list-style: none;
     padding: 0;
-    margin: 20px 0 0;
+    margin: 10px 0 0;
     width: 100%;
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .mobile-menu li {
-    margin: 15px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.mobile-menu li a {
+    display: block;
+    text-align: left;
+    width: 200px; /* Fixed width ensures all items align */
 }
 
 .mobile-menu a {
     display: block;
-    padding: 15px;
+    padding: 10px;
     font-size: 18px;
     font-weight: 600;
     color: #333;
@@ -484,8 +495,7 @@ footer {
     }
     
     .nav-container img {
-        height: 25px;
-        margin-right: 10px;
+        height: 35px;
     }
     
     /* Center the STD Verify text and logo */
@@ -495,7 +505,6 @@ footer {
         margin-right: auto;
     }
     
-    /* Style the hamburger menu to match screenshot */
     .hamburger {
         margin-left: auto;
     }
