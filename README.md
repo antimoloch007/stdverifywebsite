@@ -1,6 +1,6 @@
 <img src="./assets/logo.png" alt="STD Verify Logo" width="160"/>
 
-# STD Verify
+# [STD Verify](http://stdverify.org/)
 
 **Know Your Status – Because Confidence is the Ultimate Turn-On – More Loads, Less Shots 🏳️‍🌈**
 

@@ -16,13 +16,18 @@ test('desktop-specific test', async ({ page }) => {
   await page1.close();
 
   // Check FAQ works
-  
   await page.getByRole('contentinfo').getByRole('link', { name: 'FAQ' }).click();
   await page.getByText('Does STD Verify store my test').click();
   await page.getByText('How does STD Verify work?').click();
   await page.getByText('What are zero-knowledge').click();
   await page.getByRole('link', { name: 'STD Verify Logo STD Verify' }).click();
 
+  // Check Our Mission works
+  await page.getByRole('navigation').getByRole('link', { name: 'Our Mission' }).click();
+  await page.getByText('Balance profit motives with our mission to improve public health outcomes Make').click();
+  await page.getByText('We invite you to join us in').click();
+  await page.getByRole('link', { name: 'STD Verify Logo STD Verify' }).click();
+  
   // Check Privacy Policy works
   await page.getByRole('link', { name: 'Privacy Policy' }).click();
   await page.getByRole('link', { name: 'STD Verify Logo STD Verify' }).click();
