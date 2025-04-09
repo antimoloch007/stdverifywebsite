@@ -6,6 +6,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all components
     initComponents();
+    
+    // Highlight the active navigation link after a small delay
+    // to ensure navigation is fully set up
+    setTimeout(highlightActiveNavLink, 300);
 });
 
 function initComponents() {
@@ -16,6 +20,9 @@ function initComponents() {
     if (document.querySelector('.faq-container')) {
         initFaqAccordion();
     }
+    
+    // Set up active navigation highlighting
+    highlightActiveNavLink();
 }
 
 /**
@@ -233,6 +240,39 @@ function closeModal(modal) {
             trailContainer.style.display = '';
         }
     }
+}
+
+/**
+ * Navigation Active Link Highlighting
+ */
+function highlightActiveNavLink() {
+    // Get the current page path
+    const currentPath = window.location.pathname;
+    
+    // Extract the page filename from the path
+    const pageName = currentPath.split('/').pop() || 'index.html';
+    
+    // Handle the case where URL doesn't include .html
+    const pageIdentifier = pageName.includes('.') ? pageName : pageName + '.html';
+    
+    // Special case for the index page / home
+    const isHome = pageIdentifier === 'index.html' || pageIdentifier === '/' || pageIdentifier === '';
+    
+    // Find all navigation links
+    const allNavLinks = document.querySelectorAll('.nav-links a, .mobile-nav-list a');
+    
+    // Loop through links and highlight the active one
+    allNavLinks.forEach(link => {
+        const linkHref = link.getAttribute('href');
+        
+        // Check if this link points to the current page
+        if ((isHome && (linkHref === 'index.html' || linkHref === '/')) || 
+            (!isHome && linkHref && linkHref.includes(pageIdentifier))) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
 }
 
 /**

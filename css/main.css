@@ -208,3 +208,77 @@ header {
     margin-bottom: 30px;
 }
 
+/* 
+ * STD Verify - Mission Page Styles
+ * Add to main.css or include as separate file
+ */
+
+ /* Mission Page Specific Styles */
+ .mission {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Left-align the h1 */
+header h1 {
+    text-align: left;
+}
+
+.std-verify {
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.mission h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 30px 0 5px;
+    color: #333;
+}
+
+.rainbow-underline {
+    height: 3px;
+    width: 50px;
+    margin-bottom: 15px;
+    /* Matching aura-flow colors with softer pastel tones */
+    background: linear-gradient(
+        to right,
+        rgba(255, 200, 200, 0.7), 
+        rgba(255, 230, 200, 0.7), 
+        rgba(255, 255, 200, 0.7), 
+        rgba(200, 255, 200, 0.7), 
+        rgba(200, 230, 255, 0.7), 
+        rgba(220, 200, 255, 0.7), 
+        rgba(255, 200, 230, 0.7)
+    );
+    /* Add a softer glow effect with blur */
+    filter: blur(1px);
+    opacity: 0.7;
+    /* Add slight animation to match other site elements */
+    animation: pulse-animation 5s ease-in-out infinite alternate;
+}
+
+.mission p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+.mission ul {
+    padding-left: 25px;
+    margin-bottom: 25px;
+}
+
+.mission ul li {
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+.mission strong {
+    font-weight: 600;
+}

@@ -27,7 +27,7 @@ const siteConfig = {
     // Copyright information
     copyright: {
         year: "2025",
-        companyName: "STD Verify"
+        companyName: "STD VERIFY, SPC"
     },
     
     // Social media links
@@ -40,17 +40,19 @@ const siteConfig = {
     // Navigation structure
     navigation: {
         leftLinks: [
-            // { text: "Our Mission", url: "index.html#mission" },
-            // { text: "FAQ", url: "faq.html" }
+            { text: "Home", url: "index.html" },
+            { text: "Our Mission", url: "mission.html" },
+            { text: "FAQ", url: "faq.html" }
         ],
         rightLinks: [
             { text: "Join Our Beta", url: "#", id: "contact-button" }
         ],
         // Mobile navigation - combines all links for the mobile menu
         mobileLinks: [
-            { text: "Join Our Beta", url: "#", id: "mobile-contact-button" },
-            // { text: "Our Mission", url: "index.html#about" },
-            { text: "FAQ", url: "faq.html" }  
+            { text: "Home", url: "index.html" },
+            { text: "Our Mission", url: "mission.html" },
+            { text: "FAQ", url: "faq.html" },
+            { text: "Join Our Beta", url: "#", id: "mobile-contact-button" }
         ]
     },
     
@@ -66,8 +68,9 @@ const siteConfig = {
             {
                 title: "STD Verify",
                 links: [
+                    { text: "Home", url: "index.html" },
                     { text: "Join Our Beta", url: "#", id: "footer-beta-button" },
-                    { text: "Our Mission", url: "index.html#about" },
+                    { text: "Our Mission", url: "mission.html" },
                     { text: "Privacy Policy", url: "privacy-policy.html" }
                 ]
             },
