@@ -27,7 +27,7 @@ const siteConfig = {
     // Copyright information
     copyright: {
         year: "2025",
-        companyName: "STD VERIFY, SPC"
+        companyName: "STD Verify, SPC"
     },
     
     // Social media links

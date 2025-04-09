@@ -16,7 +16,8 @@ test('desktop-specific test', async ({ page }) => {
   await page1.close();
 
   // Check FAQ works
-  await page.getByRole('link', { name: 'FAQ' }).click();
+  
+  await page.getByRole('contentinfo').getByRole('link', { name: 'FAQ' }).click();
   await page.getByText('Does STD Verify store my test').click();
   await page.getByText('How does STD Verify work?').click();
   await page.getByText('What are zero-knowledge').click();
