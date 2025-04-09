@@ -240,7 +240,7 @@ header h1 {
 
 .rainbow-underline {
     height: 3px;
-    width: 50px;
+    width: 100%;
     margin-bottom: 15px;
     /* Matching aura-flow colors with softer pastel tones */
     background: linear-gradient(
