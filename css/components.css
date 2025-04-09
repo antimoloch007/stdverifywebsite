@@ -180,18 +180,18 @@
 .mobile-nav-list {
     list-style: none;
     padding: 0;
-    margin: 10px 0 0;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 1px;
 }
 
 .mobile-menu li {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin: 10px 0;
+    margin: 5px 0; /* Reduced from 10px to 5px */
 }
 
 .mobile-menu li a {
@@ -356,6 +356,7 @@ footer {
     width: 100%;
 }
 
+/* Keep the footer container centered */
 .footer-container {
     max-width: 900px;
     margin: 0 auto;
@@ -363,51 +364,64 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 30px;
     padding: 0 20px;
-    text-align: center;
 }
 
+/* Center the column but left-align content */
 .footer-column {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* Center the column items */
 }
 
+/* Left-align the column heading */
 .footer-column h3 {
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 20px;
     color: #333;
+    text-align: left; /* Left-align section titles */
+    width: 80%; /* Match the width of the list container */
+    max-width: 200px; /* Maximum width to prevent stretching */
 }
 
+/* Create a fixed-width container for the list to ensure consistent alignment */
 .footer-column ul {
     list-style: none;
     padding: 0;
+    width: 80%; /* Create a fixed width for better alignment */
+    max-width: 200px; /* Maximum width to prevent stretching on larger screens */
 }
 
+/* Left-align the list items inside the container */
 .footer-column ul li {
     margin-bottom: 10px;
+    text-align: left; /* Left-align the text */
 }
 
+/* Style for the footer links */
 .footer-column a {
     color: #555;
     text-decoration: none;
     transition: color 0.2s;
+    display: block; /* Make links full width of the container */
+    text-align: left; /* Ensure text is left-aligned */
 }
 
-.footer-column a:hover {
-    color: #000;
-    opacity: 1;
-}
-
+/* Keep social icons in the same alignment as text links */
 .social-icons {
     display: flex;
     gap: 15px;
     margin-top: 10px;
+    justify-content: flex-start; /* Left-justify icons like text links */
+    width: 80%; /* Match width of other elements */
+    max-width: 200px;
 }
 
+/* Style for individual social icons */
 .social-icon {
     width: 32px;
     height: 32px;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -421,6 +435,29 @@ footer {
     transform: translateY(-2px);
 }
 
+/* Add this to your CSS file to ensure SVGs are centered in their circles */
+.social-icon svg {
+    width: 16px; /* Set consistent size */
+    height: 16px;
+    display: block; /* Remove inline behavior */
+    margin: 0; /* Reset any margins */
+    position: absolute; /* Position precisely */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Perfect centering */
+}
+
+/* Fix for specific browsers or icon libraries if needed */
+.social-icon img,
+.social-icon i,
+.social-icon .icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Copyright section remains centered */
 .copyright {
     text-align: center;
     margin-top: 30px;

@@ -6,7 +6,7 @@
 
 ---
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/antimoloch007/stdverifywebsite/main.yml?branch=main&label=build)](https://github.com/antimoloch007/stdverifywebsite/actions)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/antimoloch007/stdverifywebsite/playwright.yml?branch=main&label=build)](https://github.com/antimoloch007/stdverifywebsite/actions)
 ![License](https://img.shields.io/badge/license-All%20Rights%20Reserved%20%C2%A9%20STD%20Verify%2C%20SPC-black)
 [![HIPAA Compliant](https://img.shields.io/badge/HIPAA-Compliant-brightgreen)](#)
 [![GDPR Ready](https://img.shields.io/badge/GDPR-Ready-blue)](#)
