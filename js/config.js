@@ -47,6 +47,7 @@ const siteConfig = {
         leftLinks: [
             { text: "Home", url: "index.html" },
             { text: "Our Mission", url: "mission.html" },
+            { text: "Blog", url: "https://medium.com/@stdverify", target: "_blank" },
             { text: "FAQ", url: "faq.html" }
         ],
         rightLinks: [
@@ -57,7 +58,7 @@ const siteConfig = {
             { text: "Home", url: "index.html" },
             { text: "Our Mission", url: "mission.html" },
             { text: "FAQ", url: "faq.html" },
-            { text: "Newsletter", url: "https://stdverify.medium.com/subscribe", id: "mobile-newsletter-button" },
+            { text: "Blog", url: "https://medium.com/@stdverify" },
             { text: "Join Our Beta", url: "#", id: "mobile-contact-button" }
         ]
     },

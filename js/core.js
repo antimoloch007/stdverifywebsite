@@ -303,6 +303,19 @@ function setupNavigation() {
             a.href = link.url || "#";
             a.textContent = link.text || "";
             if (link.id) a.id = link.id;
+            
+            // Check if this is an external link that should open in a new tab
+            // Don't open internal navigation in new tabs
+            if (!link.url.startsWith('#') && 
+                !link.url.includes('index.html') && 
+                !link.url.includes('mission.html') && 
+                !link.url.includes('faq.html') && 
+                !link.url.includes('privacy-policy.html')) {
+                
+                a.target = "_blank";
+                a.rel = "noopener noreferrer";
+            }
+            
             leftLinks.appendChild(a);
         });
     }
@@ -317,6 +330,16 @@ function setupNavigation() {
             a.href = link.url || "#";
             a.textContent = link.text || "";
             if (link.id) a.id = link.id;
+            
+            // Check if this is an external link that should open in a new tab
+            // Specifically open newsletter in a new tab and any external URLs
+            // Don't open beta button or other modals in new tabs
+            if ((link.id && link.id.includes('newsletter')) ||
+                (link.url.startsWith('http') && !link.id?.includes('contact') && !link.id?.includes('beta'))) {
+                a.target = "_blank";
+                a.rel = "noopener noreferrer";
+            }
+            
             rightLinks.appendChild(a);
         });
     }
@@ -436,6 +459,21 @@ function setupMobileNavigation() {
             if (item.id === 'contact-button' || item.id.includes('beta')) {
                 link.className = 'beta-button';
             }
+        }
+        
+        // Check if this is an external link that should open in a new tab
+        // Specifically open newsletter in a new tab and any external URLs
+        // Don't open beta button or other modals in new tabs
+        if ((item.id && item.id.includes('newsletter')) ||
+            (item.url.startsWith('http') && !item.url.startsWith('#') && 
+             !item.id?.includes('contact') && !item.id?.includes('beta') &&
+             !item.url.includes('index.html') && 
+             !item.url.includes('mission.html') && 
+             !item.url.includes('faq.html') && 
+             !item.url.includes('privacy-policy.html'))) {
+            
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
         }
         
         listItem.appendChild(link);
@@ -571,6 +609,20 @@ function setupFooter() {
                 a.href = link.url || "#";
                 a.textContent = link.text || "";
                 if (link.id) a.id = link.id;
+                
+                // Add target="_blank" for external links, but not for internal navigation
+                // Don't add for beta button that should open modal
+                if (!link.url.startsWith('#') && 
+                    !link.url.includes('index.html') && 
+                    !link.url.includes('mission.html') && 
+                    !link.url.includes('faq.html') && 
+                    !link.url.includes('privacy-policy.html') && 
+                    !link.id?.includes('beta-button')) {
+                    a.target = "_blank";
+                    // For security, also add rel attribute for external links
+                    a.rel = "noopener noreferrer";
+                }
+                
                 li.appendChild(a);
                 linksList.appendChild(li);
             });
@@ -589,6 +641,7 @@ function setupFooter() {
                 blueskyLink.href = window.siteConfig.socialMedia.bluesky || "#";
                 blueskyLink.className = 'social-icon';
                 blueskyLink.target = '_blank';
+                blueskyLink.rel = 'noopener noreferrer';
                 
                 // Create image element for Bluesky butterfly logo
                 const img = document.createElement('img');
@@ -653,6 +706,7 @@ function createSocialIcon(url, svgPath) {
     link.href = url || "#";
     link.className = 'social-icon';
     link.target = '_blank';
+    link.rel = 'noopener noreferrer';
     
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('class', 'icon');
