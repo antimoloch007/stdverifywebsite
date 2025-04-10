@@ -47,8 +47,8 @@ const siteConfig = {
         leftLinks: [
             { text: "Home", url: "index.html" },
             { text: "Our Mission", url: "mission.html" },
-            { text: "Blog", url: "https://medium.com/@stdverify", target: "_blank" },
-            { text: "FAQ", url: "faq.html" }
+            { text: "FAQ", url: "faq.html" },
+            { text: "Blog", url: "https://medium.com/@stdverify", target: "_blank" }
         ],
         rightLinks: [
             { text: "Join Our Beta", url: "#", id: "contact-button" }
