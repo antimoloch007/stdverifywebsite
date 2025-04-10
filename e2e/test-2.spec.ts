@@ -62,6 +62,24 @@ test('mobile-specific test', async ({ page }) => {
   await page3.close();
 
   // Check Blog, Newsletter, and Medium works
+  await page.getByRole('button', { name: 'Toggle navigation menu' }).click();
+  const page4Promise = page.waitForEvent('popup');
+  await page.getByRole('link', { name: 'Blog' }).nth(1).click();
+  const page4 = await page4Promise;
+  await expect(page4.url()).toBe('https://stdverify.medium.com/');
+  await page4.close();
+  await page.getByRole('button', { name: 'Close menu' }).click();
+  const page5Promise = page.waitForEvent('popup');
+  await page.getByRole('link', { name: 'Blog' }).click();
+  const page5 = await page5Promise;
+  await expect(page5.url()).toBe('https://stdverify.medium.com/');
+  await page5.close();
+  const page6Promise = page.waitForEvent('popup');
+  await page.getByRole('link', { name: 'Newsletter' }).click();
+  const page6 = await page6Promise;
+  await expect(page6.url()).toBe('https://stdverify.medium.com/subscribe');
+  await page6.close();
 
+  // Close browser
   await page.close();
 });

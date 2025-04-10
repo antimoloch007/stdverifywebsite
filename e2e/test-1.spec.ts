@@ -47,9 +47,6 @@ test('desktop-specific test', async ({ page }) => {
   // await expect(page.url()).toBe('https://www.instagram.com/stdverify/');
   await page3.close();
 
-  // Check Blog, Newsletter, and Medium works
-  
-
   // Check LinkedIn works
   const page4Promise = page.waitForEvent('popup');
   await page.getByRole('link').filter({ hasText: /^$/ }).nth(2).click();
@@ -57,6 +54,29 @@ test('desktop-specific test', async ({ page }) => {
   await expect(page4.url()).toBe('https://www.linkedin.com/company/stdverify');
   await page4.close();
 
+  // Check Blog, Newsletter, and Medium works
+  const page5Promise = page.waitForEvent('popup');
+  await page.getByRole('navigation').getByRole('link', { name: 'Blog' }).click();
+  const page5 = await page5Promise;
+  await expect(page5.url()).toBe('https://stdverify.medium.com/');
+  await page5.close();
+  const page6Promise = page.waitForEvent('popup');
+  await page.getByRole('contentinfo').getByRole('link', { name: 'Blog' }).click();
+  const page6 = await page6Promise;
+  await expect(page6.url()).toBe('https://stdverify.medium.com/');
+  await page6.close();
+  const page7Promise = page.waitForEvent('popup');
+  await page.getByRole('link', { name: 'Newsletter' }).click();
+  const page7 = await page7Promise;
+  await expect(page7.url()).toBe('https://stdverify.medium.com/subscribe');
+  await page7.close();
+  const page8Promise = page.waitForEvent('popup');
+  await page.getByRole('link').filter({ hasText: /^$/ }).nth(4).click();
+  const page8 = await page8Promise;
+  await expect(page8.url()).toBe('https://stdverify.medium.com/');
+  await page8.close();
+
+  // Close browser
   await page.close();
 
 });
