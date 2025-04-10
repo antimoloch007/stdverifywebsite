@@ -56,6 +56,8 @@ STD Verify is committed to the highest standards of **data privacy and protectio
 - 📸 **Instagram**: [@stdverify](https://www.instagram.com/stdverify)  
 - ✉️ **Contact Us**: [support@stdverify.org](mailto:support@stdverify.org)  
 - 📝 **Join Our Beta**: [Beta Sign-Up Form](https://form.typeform.com/to/Ii3HSlEH)  
+- 📰 **Medium Blog**: [@stdverify on Medium](https://medium.com/@stdverify)  
+- 📬 **Sign Up for Our Newsletter**: [Subscribe via Medium](https://stdverify.medium.com/subscribe)
 
 ---
 
