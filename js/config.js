@@ -14,7 +14,10 @@ const siteConfig = {
     urls: {
         betaFormUrl: "https://form.typeform.com/to/Ii3HSlEH",
         supportEmail: "support@stdverify.org",
-        linkedinPage: "https://www.linkedin.com/company/stdverify"
+        linkedinPage: "https://www.linkedin.com/company/stdverify",
+        newsletterSubscribe: "https://stdverify.medium.com/subscribe",
+        mediumBlog: "https://medium.com/@stdverify",
+        githubRepo: "https://github.com/antimoloch007/stdverifywebsite"
     },
     
     // Modal content
@@ -34,7 +37,9 @@ const siteConfig = {
     socialMedia: {
         bluesky: "https://bsky.app/profile/stdverify.bsky.social",
         instagram: "https://www.instagram.com/stdverify",
-        linkedin: "https://www.linkedin.com/company/stdverify"
+        linkedin: "https://www.linkedin.com/company/stdverify",
+        github: "https://github.com/antimoloch007/stdverifywebsite",
+        medium: "https://medium.com/@stdverify"
     },
     
     // Navigation structure
@@ -52,6 +57,7 @@ const siteConfig = {
             { text: "Home", url: "index.html" },
             { text: "Our Mission", url: "mission.html" },
             { text: "FAQ", url: "faq.html" },
+            { text: "Newsletter", url: "https://stdverify.medium.com/subscribe", id: "mobile-newsletter-button" },
             { text: "Join Our Beta", url: "#", id: "mobile-contact-button" }
         ]
     },
@@ -69,8 +75,8 @@ const siteConfig = {
                 title: "STD Verify",
                 links: [
                     { text: "Home", url: "index.html" },
-                    { text: "Join Our Beta", url: "#", id: "footer-beta-button" },
                     { text: "Our Mission", url: "mission.html" },
+                    { text: "Join Our Beta", url: "#", id: "footer-beta-button" },
                     { text: "Privacy Policy", url: "privacy-policy.html" }
                 ]
             },
@@ -78,7 +84,8 @@ const siteConfig = {
                 title: "Resources",
                 links: [
                     { text: "FAQ", url: "faq.html" },
-                    { text: "Blog - Coming soon!", url: "#blog" },
+                    { text: "Blog", url: "https://medium.com/@stdverify" },
+                    { text: "Newsletter", url: "https://stdverify.medium.com/subscribe" },
                     { text: "Partner Clinics - Coming soon!", url: "#clinics" }
                 ]
             },

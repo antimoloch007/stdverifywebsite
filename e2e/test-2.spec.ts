@@ -52,6 +52,7 @@ test('mobile-specific test', async ({ page }) => {
   await page.getByRole('link', { name: 'Bluesky' }).click();
   const page2 = await page2Promise;
   page2.close();
+  
   // LinkedIn
   const page3Promise = page.waitForEvent('popup');
   await page.getByRole('link').filter({ hasText: /^$/ }).nth(2).click();
@@ -59,6 +60,8 @@ test('mobile-specific test', async ({ page }) => {
   await page3.getByRole('button', { name: 'Dismiss' }).click();
   await expect(page3.url()).toBe('https://www.linkedin.com/company/stdverify');
   await page3.close();
+
+  // Check Blog, Newsletter, and Medium works
 
   await page.close();
 });

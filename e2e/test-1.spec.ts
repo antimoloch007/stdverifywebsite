@@ -47,6 +47,9 @@ test('desktop-specific test', async ({ page }) => {
   // await expect(page.url()).toBe('https://www.instagram.com/stdverify/');
   await page3.close();
 
+  // Check Blog, Newsletter, and Medium works
+  
+
   // Check LinkedIn works
   const page4Promise = page.waitForEvent('popup');
   await page.getByRole('link').filter({ hasText: /^$/ }).nth(2).click();
