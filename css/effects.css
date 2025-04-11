@@ -1,124 +1,13 @@
 /* 
  * STD Verify - Visual Effects
- * Contains cursor effects and visual enhancements
- * This file is optional and can be excluded for better performance
+ * Contains visual enhancements
+ * Custom cursor effects removed for performance
  */
-
-/* =====================
-   CUSTOM CURSOR
-   ===================== */
-   body.custom-cursor-active {
-    cursor: none !important;
-}
-
-.custom-cursor {
-    position: fixed;
-    width: 40px;
-    height: 40px;
-    pointer-events: none;
-    z-index: 10000;
-    transform: translate(-50%, -50%);
-    will-change: transform;
-}
-
-.cursor-glow {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: radial-gradient(
-        circle,
-        rgba(255, 255, 255, 0.8) 0%,
-        rgba(255, 255, 255, 0.4) 40%,
-        rgba(255, 255, 255, 0) 70%
-    );
-    transform: translate(-5px, -5px);
-    opacity: 0.7;
-    filter: blur(3px);
-    mix-blend-mode: overlay;
-    animation: pulse 2s infinite alternate;
-}
-
-.cursor-inner {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.8);
-    transform: translate(-5px, -5px);
-    transition: transform 0.3s ease;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-}
-
-.cursor-hover .cursor-inner {
-    transform: translate(-5px, -5px) scale(1.5);
-    background-color: rgba(255, 255, 255, 0.9);
-}
-
-.cursor-hover .cursor-glow {
-    background: radial-gradient(
-        circle,
-        rgba(255, 255, 255, 0.9) 0%,
-        rgba(255, 150, 255, 0.6) 40%,
-        rgba(150, 150, 255, 0) 70%
-    );
-    animation: pulse-fast 1s infinite alternate;
-}
-
-/* =====================
-   CURSOR TRAILS
-   ===================== */
-.trail-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9999;
-    overflow: hidden;
-}
-
-.cursor-trail {
-    position: absolute;
-    border-radius: 40%;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    mix-blend-mode: lighten;
-    will-change: transform, opacity, filter;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-}
-
-/* =====================
-   ANIMATIONS
-   ===================== */
-@keyframes pulse {
-    0% {
-        transform: translate(-5px, -5px) scale(0.95);
-        opacity: 0.6;
-    }
-    100% {
-        transform: translate(-5px, -5px) scale(1.05);
-        opacity: 0.8;
-    }
-}
-
-@keyframes pulse-fast {
-    0% {
-        transform: translate(-5px, -5px) scale(0.9);
-        opacity: 0.7;
-    }
-    100% {
-        transform: translate(-5px, -5px) scale(1.1);
-        opacity: 0.9;
-    }
-}
 
 /* =====================
    LOGO ANIMATIONS
    ===================== */
-.animated-logo {
+   .animated-logo {
     animation: logoGlow 3s infinite ease-in-out;
     border-radius: 50%;
 }
@@ -159,7 +48,7 @@
     overflow: hidden;
 }
 
-/* Updated with more neutral rainbow colors similar to cursor animations */
+/* Updated with more neutral rainbow colors */
 .aura-flow {
     position: absolute;
     width: 150%;
@@ -187,14 +76,6 @@
    RESPONSIVE EFFECTS
    ===================== */
 @media (max-width: 768px) {
-    body {
-        cursor: auto !important;
-    }
-    
-    .custom-cursor, .cursor-trail, .trail-container {
-        display: none !important;
-    }
-    
     /* Ensure the logo looks good on mobile */
     .hero-logo-container {
         width: 200px;
@@ -203,39 +84,19 @@
     }
 }
 
-/* Override cursor hiding when modal is active */
-.modal-open {
-    cursor: auto !important;
-  }
-  
-  /* Make the modal content use the default cursor */
-  .modal-content {
-    cursor: default !important;
-  }
-  
-  /* Make clickable elements in modal show pointer cursor */
-  .modal-content a,
-  .modal-content button,
-  .modal-content .close-modal {
+/* =====================
+   NORMAL CURSOR STYLES
+   ===================== */
+/* Ensure clickable elements have proper cursor */
+a, button, 
+.hamburger, 
+.close-modal, 
+.beta-button, 
+.faq-question {
     cursor: pointer !important;
-  }
-  
-  /* Keep custom cursor hidden when modal is active */
-  body.modal-open .custom-cursor,
-  body.modal-open .cursor-trail {
-    opacity: 0 !important;
-    visibility: hidden !important;
-  }
-  
-  /* Ensure the custom cursor has high z-index but doesn't interfere with modals */
-  .custom-cursor {
-    z-index: 10000;
-    pointer-events: none;
-    will-change: transform, opacity;
-    transition: opacity 0.2s ease;
-  }
-  
-  /* Custom z-index for modal to ensure it stays above custom cursor */
-  .modal {
-    z-index: 10001 !important;
-  }
+}
+
+/* Modal content should use default cursor */
+.modal-content {
+    cursor: default !important;
+}

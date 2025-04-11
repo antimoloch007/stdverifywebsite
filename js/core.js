@@ -1,6 +1,7 @@
 /**
  * STD Verify - Core Functionality
  * Handles navigation, site configuration application, and core site setup
+ * Updated to remove animation initializations
  */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -45,8 +46,7 @@ function initCore() {
         console.log("Components initialization function not found");
     }
     
-    // NOTE: removed addBackgroundAnimation() call from here
-    // Background animation is now exclusively handled by background-animation.js
+    // NOTE: Background animation initialization removed for performance
 }
 
 /**
